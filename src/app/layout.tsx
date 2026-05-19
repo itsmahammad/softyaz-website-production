@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -9,6 +10,9 @@ export const metadata: Metadata = {
   },
   description: "Softy.az proqram quraşdırılması, Windows/Linux setup, driverlər, optimizasiya və uzaqdan texniki dəstək xidmətləri göstərir.",
   metadataBase: new URL(siteConfig.siteUrl),
+  verification: {
+    google: "QmGPGad-khTwaH5E8X8cnr4Gd5u2arWzkkoMAJ_h26I"
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -21,7 +25,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="az">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
