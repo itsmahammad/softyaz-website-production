@@ -4,6 +4,6 @@ import { siteConfig } from "@/config/site";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: `${siteConfig.siteUrl}/sitemap.xml`
+    sitemap: new URL("/sitemap.xml", siteConfig.siteUrl).toString()
   };
 }
