@@ -1,0 +1,360 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  BadgeCheck,
+  BriefcaseBusiness,
+  Building2,
+  Cpu,
+  DraftingCompass,
+  GraduationCap,
+  Headphones,
+  Instagram,
+  Laptop,
+  MapPin,
+  MessageCircle,
+  MonitorCog,
+  Palette,
+  ShieldCheck,
+  Sparkles,
+  UserRound,
+  WandSparkles,
+  Wrench
+} from "lucide-react";
+import { BlogCard, PackageCard } from "@/components/Cards";
+import { ButtonLink } from "@/components/ButtonLink";
+import { CTASection } from "@/components/CTASection";
+import { FAQList } from "@/components/FAQ";
+import { JsonLd } from "@/components/JsonLd";
+import { SectionHeading } from "@/components/SectionHeading";
+import { siteConfig, type Locale } from "@/config/site";
+import { blogPosts } from "@/content/blog";
+import { faqs } from "@/content/faqs";
+import { packages } from "@/content/packages";
+import { getSoftwareItems, softwareById, type SoftwareId } from "@/content/software";
+import { getDictionary } from "@/i18n";
+import { isLocale, localizedPath, whatsappLink } from "@/lib/i18n";
+import { createMetadata } from "@/lib/seo";
+import { SoftwareLogo, SoftwareLogoGroup } from "@/components/SoftwareLogo";
+
+type CardIcon = typeof MonitorCog;
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : "az";
+  const t = getDictionary(locale);
+  return createMetadata({
+    locale,
+    title:
+      locale === "az"
+        ? "Softy.az | Proqram quraşdırılması və texniki dəstək"
+        : locale === "ru"
+          ? "Softy.az | Установка программ и техническая поддержка"
+          : "Softy.az | Software installation and technical support",
+    description: t.home.description
+  });
+}
+
+const popularRequests = [
+  { label: "Windows 11", status: "Setup", software: "windows" },
+  { label: "Adobe", status: "Popular", software: "photoshop" },
+  { label: "AutoCAD", status: "Popular", software: "autocad" },
+  { label: "Revit", status: "Popular", software: "revit" },
+  { label: "Office", status: "Setup", software: "office" },
+  { label: "Driver setup", status: "Setup", software: "nvidia" }
+] satisfies Array<{ label: string; status: string; software: SoftwareId }>;
+
+const categoryLogoIds: Record<string, SoftwareId[]> = {
+  "xidmetler/windows-qurasdirilmasi": ["windows", "linux", "macos"],
+  "xidmetler/arxitektura-proqramlari": ["autocad", "revit", "3ds-max", "sketchup", "d5-render", "vray"],
+  "xidmetler/adobe-qurasdirilmasi": ["photoshop", "illustrator", "premiere", "after-effects", "lightroom"],
+  "xidmetler/driver-qurasdirilmasi": ["nvidia", "intel", "windows"],
+  "xidmetler/uzagdan-destek": ["windows", "office", "autocad"]
+};
+
+const serviceCategories: Record<Locale, Array<{ title: string; text: string; href: string; icon: CardIcon }>> = {
+  az: [
+    { title: "Əməliyyat sistemləri", text: "Windows, Linux, formatlama, ilkin sazlama", href: "xidmetler/windows-qurasdirilmasi", icon: MonitorCog },
+    { title: "Peşəkar proqramlar", text: "AutoCAD, Revit, 3ds Max, SketchUp, SolidWorks, MATLAB", href: "xidmetler/arxitektura-proqramlari", icon: DraftingCompass },
+    { title: "Adobe və dizayn", text: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom", href: "xidmetler/adobe-qurasdirilmasi", icon: Palette },
+    { title: "Render və pluginlər", text: "D5 Render, Lumion, Enscape, V-Ray və digər pluginlər", href: "xidmetler/arxitektura-proqramlari", icon: WandSparkles },
+    { title: "Driver və optimizasiya", text: "Driverlər, performans ayarları, sistem təmizliyi", href: "xidmetler/driver-qurasdirilmasi", icon: Wrench },
+    { title: "Uzaqdan texniki dəstək", text: "Proqram xətaları, quraşdırma köməyi, konsultasiya", href: "xidmetler/uzagdan-destek", icon: Headphones }
+  ],
+  ru: [
+    { title: "Операционные системы", text: "Windows, Linux, форматирование и базовая настройка", href: "xidmetler/windows-qurasdirilmasi", icon: MonitorCog },
+    { title: "Профессиональные программы", text: "AutoCAD, Revit, 3ds Max, SketchUp, SolidWorks, MATLAB", href: "xidmetler/arxitektura-proqramlari", icon: DraftingCompass },
+    { title: "Adobe и дизайн", text: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom", href: "xidmetler/adobe-qurasdirilmasi", icon: Palette },
+    { title: "Render и плагины", text: "D5 Render, Lumion, Enscape, V-Ray и другие плагины", href: "xidmetler/arxitektura-proqramlari", icon: WandSparkles },
+    { title: "Драйверы и оптимизация", text: "Драйверы, performance settings и очистка системы", href: "xidmetler/driver-qurasdirilmasi", icon: Wrench },
+    { title: "Удаленная поддержка", text: "Ошибки программ, помощь с установкой, консультация", href: "xidmetler/uzagdan-destek", icon: Headphones }
+  ],
+  en: [
+    { title: "Operating systems", text: "Windows, Linux, formatting and base setup", href: "xidmetler/windows-qurasdirilmasi", icon: MonitorCog },
+    { title: "Professional software", text: "AutoCAD, Revit, 3ds Max, SketchUp, SolidWorks, MATLAB", href: "xidmetler/arxitektura-proqramlari", icon: DraftingCompass },
+    { title: "Adobe and design", text: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom", href: "xidmetler/adobe-qurasdirilmasi", icon: Palette },
+    { title: "Render and plugins", text: "D5 Render, Lumion, Enscape, V-Ray and other plugins", href: "xidmetler/arxitektura-proqramlari", icon: WandSparkles },
+    { title: "Drivers and optimization", text: "Drivers, performance settings and system cleanup", href: "xidmetler/driver-qurasdirilmasi", icon: Wrench },
+    { title: "Remote technical support", text: "Software errors, installation help and consultation", href: "xidmetler/uzagdan-destek", icon: Headphones }
+  ]
+};
+
+const audience: Record<Locale, Array<{ title: string; text: string; icon: CardIcon }>> = {
+  az: [
+    { title: "Tələbələr", text: "Dərs və layihələr üçün lazım olan proqramlar.", icon: GraduationCap },
+    { title: "Memarlar və dizaynerlər", text: "Çizim, model, render və təqdimat alətləri.", icon: DraftingCompass },
+    { title: "Mühəndislər", text: "Texniki proqramlar və stabil iş mühiti.", icon: Cpu },
+    { title: "Freelancerlər", text: "İşə hazır laptop və remote problem həlli.", icon: Laptop },
+    { title: "Ofis işçiləri", text: "Office, PDF, printer və gündəlik alətlər.", icon: BriefcaseBusiness },
+    { title: "Gündəlik istifadəçilər", text: "Formatlama, driver, təhlükəsizlik və optimizasiya.", icon: UserRound }
+  ],
+  ru: [
+    { title: "Студенты", text: "Программы для учебы и проектов.", icon: GraduationCap },
+    { title: "Архитекторы и дизайнеры", text: "Чертежи, моделирование, render и презентации.", icon: DraftingCompass },
+    { title: "Инженеры", text: "Технические программы и стабильная среда.", icon: Cpu },
+    { title: "Фрилансеры", text: "Готовый к работе ноутбук и remote help.", icon: Laptop },
+    { title: "Офисные сотрудники", text: "Office, PDF, printer и ежедневные инструменты.", icon: BriefcaseBusiness },
+    { title: "Обычные пользователи", text: "Форматирование, драйверы, безопасность и оптимизация.", icon: UserRound }
+  ],
+  en: [
+    { title: "Students", text: "Software for classes, projects and coursework.", icon: GraduationCap },
+    { title: "Architects and designers", text: "Drawing, modeling, render and presentation tools.", icon: DraftingCompass },
+    { title: "Engineers", text: "Technical software and a stable work setup.", icon: Cpu },
+    { title: "Freelancers", text: "Ready-to-work laptops and remote issue solving.", icon: Laptop },
+    { title: "Office workers", text: "Office, PDF, printer and everyday tools.", icon: BriefcaseBusiness },
+    { title: "Daily users", text: "Formatting, drivers, security and optimization.", icon: UserRound }
+  ]
+};
+
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: raw } = await params;
+  const locale = (isLocale(raw) ? raw : "az") as Locale;
+  const t = getDictionary(locale);
+  const heroMessage =
+    locale === "az"
+      ? "Salam, proqram quraşdırılması üçün məlumat almaq istəyirəm."
+      : locale === "ru"
+        ? "Здравствуйте, хочу узнать об установке программ."
+        : "Hi, I want to ask about software installation.";
+
+  const heroLines =
+    locale === "az"
+      ? [
+          "Windows, Linux, Adobe, AutoCAD, Revit, Office və driverlər üçün sürətli quraşdırma və dəstək.",
+          "Bakı üzrə yerində xidmət, bütün Azərbaycan üzrə uzaqdan kömək."
+        ]
+      : locale === "ru"
+        ? [
+            "Установка и поддержка Windows, Linux, Adobe, AutoCAD, Revit, Office и драйверов.",
+            "Услуги в Баку и удаленная помощь по всему Азербайджану."
+          ]
+        : [
+            "Fast setup and support for Windows, Linux, Adobe, AutoCAD, Revit, Office and drivers.",
+            "In-person service in Baku and remote help across Azerbaijan."
+          ];
+
+  const trustBadges =
+    locale === "az"
+      ? [
+          { text: "Bakı üzrə xidmət", icon: MapPin },
+          { text: "Azərbaycan üzrə uzaqdan dəstək", icon: Headphones },
+          { text: siteConfig.discount.az, icon: BadgeCheck },
+          { text: "Tələbələr və peşəkarlar üçün", icon: GraduationCap },
+          { text: "Windows / Linux / macOS dəstəyi", icon: MonitorCog }
+        ]
+      : locale === "ru"
+        ? [
+            { text: "Услуги в Баку", icon: MapPin },
+            { text: "Удаленная поддержка по Азербайджану", icon: Headphones },
+            { text: siteConfig.discount.ru, icon: BadgeCheck },
+            { text: "Для студентов и специалистов", icon: GraduationCap },
+            { text: "Windows / Linux / macOS support", icon: MonitorCog }
+          ]
+        : [
+            { text: "Service in Baku", icon: MapPin },
+            { text: "Remote support across Azerbaijan", icon: Headphones },
+            { text: siteConfig.discount.en, icon: BadgeCheck },
+            { text: "For students and professionals", icon: GraduationCap },
+            { text: "Windows / Linux / macOS support", icon: MonitorCog }
+          ];
+
+  const homepagePackages = packages.filter((pack) => ["adobe", "architecture", "full"].includes(pack.id));
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs[locale].slice(0, 5).map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } }))
+  };
+
+  return (
+    <>
+      <JsonLd data={faqSchema} />
+
+      <section className="relative overflow-hidden">
+        <div className="absolute left-[-12rem] top-[-14rem] h-[34rem] w-[34rem] rounded-full bg-[#38E8FF]/14 blur-3xl" />
+        <div className="absolute right-[-10rem] top-20 h-[30rem] w-[30rem] rounded-full bg-[#2563EB]/15 blur-3xl" />
+        <div className="absolute bottom-[-16rem] right-[-12rem] h-[36rem] w-[36rem] rounded-full bg-[#9333EA]/16 blur-3xl" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-14 sm:px-6 md:grid-cols-[1.05fr_0.95fr] md:pb-24 md:pt-20 lg:px-8">
+          <div className="flex flex-col justify-center">
+            <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/12 bg-[#0A1228]/58 px-4 py-2 text-sm font-bold text-cyan-100 shadow-[inset_0_1px_0_rgba(248,250,252,0.035)]">
+              <Sparkles size={16} /> {t.labels.serviceArea}
+            </p>
+            <h1 className="text-balance text-4xl font-black tracking-normal text-white sm:text-5xl lg:text-6xl">{t.home.title}</h1>
+            <div className="mt-6 max-w-2xl space-y-3 text-lg leading-8 text-slate-300">
+              {heroLines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={whatsappLink(heroMessage)} external>
+                <MessageCircle size={18} /> {t.cta.whatsapp}
+              </ButtonLink>
+              <ButtonLink href={localizedPath(locale, "xidmetler")} variant="secondary">
+                {t.cta.viewServices}
+              </ButtonLink>
+              <ButtonLink href={siteConfig.instagram} external variant="ghost">
+                <Instagram size={18} /> Instagram
+              </ButtonLink>
+            </div>
+          </div>
+
+          <div className="glass soft-float relative overflow-hidden rounded-3xl p-5 motion-reduce:animate-none sm:p-6">
+            <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#38E8FF]/12 blur-3xl" />
+            <div className="absolute -bottom-20 left-10 h-56 w-56 rounded-full bg-[#9333EA]/14 blur-3xl" />
+            <div className="relative">
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-200">Softy.az</p>
+                  <h2 className="mt-2 text-2xl font-black text-white">{locale === "az" ? "Ən çox istənilənlər" : locale === "ru" ? "Чаще всего просят" : "Most requested"}</h2>
+                </div>
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#38E8FF] via-[#2563EB] to-[#9333EA] text-white shadow-[0_18px_50px_rgba(56,232,255,0.22)]">
+                  <ShieldCheck size={24} />
+                </div>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {popularRequests.map((item) => {
+                  return (
+                    <div key={item.label} className="rounded-2xl border border-cyan-300/8 bg-[#050816]/46 p-4">
+                      <div className="flex items-center gap-3">
+                        <SoftwareLogo item={softwareById[item.software]} size="md" />
+                        <div className="min-w-0">
+                          <p className="font-bold text-white">{item.label}</p>
+                          <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-cyan-200">{item.status}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {trustBadges.map((badge) => {
+            const Icon = badge.icon;
+            return (
+              <div key={badge.text} className="rounded-2xl border border-cyan-300/8 bg-[#0A1228]/46 p-4 text-sm font-bold leading-6 text-slate-100 shadow-[inset_0_1px_0_rgba(248,250,252,0.025)]">
+                <Icon className="mb-3 text-cyan-200" size={20} />
+                {badge.text}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading
+          title={locale === "az" ? "Nə quraşdırırıq?" : locale === "ru" ? "Что устанавливаем?" : "What do we install?"}
+          text={locale === "az" ? "Əsas xidmətlər kateqoriyalarla verilib ki, lazım olanı tez tapasınız." : locale === "ru" ? "Основные услуги сгруппированы, чтобы быстро найти нужное." : "Core services are grouped so you can find what you need quickly."}
+        />
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {serviceCategories[locale].map((category) => (
+            <CategoryCard key={category.title} locale={locale} {...category} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading title={t.home.howTitle} text={locale === "az" ? "Proses sadədir: yazırsınız, ehtiyac dəqiqləşir, cihaz və proqramlar hazırlanır." : locale === "ru" ? "Процесс простой: пишете, уточняем задачу, готовим устройство и программы." : "The process is simple: message us, clarify the need, then your device and apps are prepared."} />
+        <div className="grid gap-4 md:grid-cols-4">
+          {t.home.steps.map((step, index) => (
+            <div key={step} className="glass rounded-2xl p-6">
+              <span className="text-4xl font-black text-cyan-200">0{index + 1}</span>
+              <p className="mt-5 text-lg font-bold leading-7 text-white">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading title={locale === "az" ? "Paketlər və qiymətlər" : locale === "ru" ? "Пакеты и цены" : "Packages and pricing"} text={locale === "az" ? "Homepage-də ən çox seçilən paketlər göstərilir. Daha ətraflı qiymətlər paketlər səhifəsindədir." : locale === "ru" ? "На главной показаны самые популярные пакеты. Детали есть на странице пакетов." : "The homepage shows the most selected packages. Full details are on the packages page."} />
+        <div className="mb-6 rounded-2xl border border-cyan-300/10 bg-gradient-to-r from-[#38E8FF]/8 via-[#2563EB]/8 to-[#9333EA]/10 p-5 text-center text-base font-black text-cyan-50">
+          {siteConfig.discount[locale]}
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">{homepagePackages.map((pack) => <PackageCard key={pack.id} pack={pack} locale={locale} />)}</div>
+        <div className="mt-7 text-center">
+          <ButtonLink href={localizedPath(locale, "paketler")} variant="secondary">
+            {t.nav.packages}
+          </ButtonLink>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading title={locale === "az" ? "Kimlər üçün uyğundur?" : locale === "ru" ? "Кому подходит?" : "Who is it for?"} text={locale === "az" ? "Softy.az həm təhsil, həm də real iş üçün proqram ehtiyaclarını anlayan praktik dəstəkdir." : locale === "ru" ? "Softy.az помогает с программами для учебы, работы и ежедневных задач." : "Softy.az supports software needs for study, work and everyday use."} />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {audience[locale].map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="rounded-2xl border border-cyan-300/8 bg-[#0A1228]/46 p-5">
+                <Icon className="mb-4 text-cyan-200" size={24} />
+                <h3 className="text-lg font-black text-white">{item.title}</h3>
+                <p className="mt-2 text-base leading-7 text-slate-300">{item.text}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading title={t.home.whyTitle} text={locale === "az" ? "Texniki işi mümkün qədər rahat, aydın və stressiz etmək üçün." : locale === "ru" ? "Чтобы техническая задача была понятной и спокойной." : "To make technical setup clear, calm and comfortable."} />
+        <div className="grid gap-4 md:grid-cols-2">
+          {t.home.why.map((item) => (
+            <div key={item} className="rounded-2xl border border-cyan-300/8 bg-[#0A1228]/46 p-6 text-base leading-7 text-slate-200">
+              <BadgeCheck className="mb-4 text-cyan-200" size={22} />
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading title={t.home.faqTitle} text={locale === "az" ? "Ən çox verilən suallar. Tam siyahı FAQ səhifəsindədir." : locale === "ru" ? "Самые частые вопросы. Полный список на странице FAQ." : "The most common questions. The full list is on the FAQ page."} />
+        <FAQList items={faqs[locale].slice(0, 5)} />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading title={t.home.blogTitle} text={locale === "az" ? "Quraşdırmadan əvvəl qərar verməyə kömək edən qısa və praktik yazılar." : locale === "ru" ? "Короткие практичные статьи перед установкой." : "Short practical guides before installation."} />
+        <div className="grid gap-5 md:grid-cols-3">{blogPosts.slice(0, 3).map((post) => <BlogCard key={post.slug} post={post} locale={locale} />)}</div>
+      </section>
+
+      <CTASection locale={locale} title={t.home.finalTitle} text={t.home.finalText} />
+    </>
+  );
+}
+
+function CategoryCard({ locale, title, text, href, icon: Icon }: { locale: Locale; title: string; text: string; href: string; icon: CardIcon }) {
+  const t = getDictionary(locale);
+  const logos = getSoftwareItems(categoryLogoIds[href] ?? []);
+  return (
+    <Link href={localizedPath(locale, href)} className="group glass block rounded-2xl p-6 transition duration-200 motion-safe:hover:-translate-y-1">
+      <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#38E8FF]/12 via-[#2563EB]/12 to-[#9333EA]/16 text-cyan-100 ring-1 ring-cyan-300/10 transition duration-200 group-hover:brightness-110">
+        <Icon size={24} />
+      </div>
+      <h3 className="text-xl font-black text-white">{title}</h3>
+      <p className="mt-3 text-base leading-7 text-slate-300">{text}</p>
+      {logos.length ? <SoftwareLogoGroup items={logos} maxVisible={4} size="sm" className="mt-5" /> : null}
+      <span className="mt-5 inline-flex items-center text-sm font-black text-cyan-200 group-hover:text-cyan-100">{locale === "az" ? "Ətraflı bax" : t.cta.chooseService}</span>
+    </Link>
+  );
+}

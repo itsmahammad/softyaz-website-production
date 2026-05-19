@@ -1,0 +1,20 @@
+<svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="88" height="88" rx="24" fill="url(#paint0_linear)"/>
+  <rect x="4" y="4" width="88" height="88" rx="24" stroke="url(#paint1_linear)" stroke-width="2"/>
+  <path d="M31 58.5C35.4 64.2 44.1 66.3 52 63.5C58 61.4 62 57.1 62 51.6C62 45.3 57.6 42.2 49.3 39.9L43.2 38.2C39.5 37.1 37.9 35.7 37.9 33.4C37.9 30.8 40.4 29 44.3 29C48.7 29 52 31 54.6 34.3L62 28.4C58 23.1 52.1 20 44.5 20C34.8 20 28.1 25.7 28.1 34C28.1 40.9 32.5 45.2 41 47.5L47.3 49.2C50.9 50.2 52.2 51.4 52.2 53.5C52.2 56.3 49.3 58.1 44.9 58.1C40 58.1 35.8 55.8 32.8 52L31 58.5Z" fill="white"/>
+  <path d="M71 24L60.7 68H69.6L80 24H71Z" fill="white" fill-opacity=".88"/>
+  <text x="112" y="43" fill="white" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Softy.az</text>
+  <text x="113" y="66" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Proqram Quraşdırma</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="10" y1="10" x2="92" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset=".46" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="8" y1="9" x2="88" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CFFAFE" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#60A5FA" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+</svg>
