@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   },
   description: "Softy.az proqram quraşdırılması, Windows/Linux setup, driverlər, optimizasiya və uzaqdan texniki dəstək xidmətləri göstərir.",
   metadataBase: new URL(siteConfig.siteUrl),
+  verification: {
+    google: "QmGPGad-khTwaH5E8X8cnr4Gd5u2arWzkkoMAJ_h26I"
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
