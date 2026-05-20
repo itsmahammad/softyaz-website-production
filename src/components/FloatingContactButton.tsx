@@ -15,7 +15,7 @@ export function FloatingContactButton({ locale }: { locale: Locale }) {
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 flex gap-2 sm:left-auto sm:right-5 sm:w-auto">
       <a
-        className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#38E8FF] via-[#2563EB] to-[#7C3AED] px-4 text-sm font-black text-white shadow-[0_18px_52px_rgba(56,232,255,0.24)] sm:flex-none"
+        className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#8B5CF6] px-4 text-sm font-black text-white shadow-[0_18px_52px_rgba(139,92,246,0.2)] sm:flex-none"
         href={whatsappLink(message)}
         target="_blank"
         rel="noreferrer"

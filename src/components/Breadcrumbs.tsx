@@ -8,11 +8,11 @@ export function Breadcrumbs({ locale, items }: { locale: Locale; items: { label:
   return (
     <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate-400">
       <ol className="flex flex-wrap items-center gap-2">
-        <li><Link className="hover:text-cyan-300" href={localizedPath(locale)}>{t.nav.home}</Link></li>
+        <li><Link className="hover:text-violet-200" href={localizedPath(locale)}>{t.nav.home}</Link></li>
         {items.map((item) => (
           <li key={item.label} className="flex items-center gap-2">
             <span>/</span>
-            {item.href ? <Link className="hover:text-cyan-300" href={item.href}>{item.label}</Link> : <span className="text-slate-200">{item.label}</span>}
+            {item.href ? <Link className="hover:text-violet-200" href={item.href}>{item.label}</Link> : <span className="text-slate-200">{item.label}</span>}
           </li>
         ))}
       </ol>

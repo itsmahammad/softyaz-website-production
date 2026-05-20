@@ -8,7 +8,7 @@ export function Footer({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
   const message = locale === "az" ? "Salam, Softy.az xidmətləri haqqında məlumat almaq istəyirəm." : locale === "ru" ? "Здравствуйте, хочу узнать об услугах Softy.az." : "Hi, I want to ask about Softy.az services.";
   return (
-    <footer className="border-t border-cyan-300/10 bg-[#030712]/78">
+    <footer className="border-t border-violet-300/10 bg-[#071126]/84">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-2">
           <p className="text-xl font-black">Softy.az</p>
@@ -34,7 +34,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
       </div>
-      <div className="border-t border-cyan-300/8 px-4 py-5 text-center text-xs leading-6 text-slate-500">
+      <div className="border-t border-violet-300/8 px-4 py-5 text-center text-xs leading-6 text-slate-500">
         <p>© {new Date().getFullYear()} Softy.az. {locale === "az" ? "Bütün hüquqlar qorunur." : locale === "ru" ? "Все права защищены." : "All rights reserved."}</p>
         <p className="mx-auto mt-2 max-w-3xl">
           {locale === "az"

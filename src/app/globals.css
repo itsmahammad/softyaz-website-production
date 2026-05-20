@@ -4,12 +4,12 @@
 
 :root {
   color-scheme: dark;
-  --bg: #030712;
-  --panel: rgba(10, 18, 40, 0.64);
-  --line: rgba(103, 232, 249, 0.09);
-  --cyan: #38e8ff;
+  --bg: #071126;
+  --panel: rgba(15, 35, 75, 0.68);
+  --line: rgba(167, 139, 250, 0.14);
   --blue: #2563eb;
-  --purple: #7c3aed;
+  --purple: #8b5cf6;
+  --violet: #a78bfa;
 }
 
 * {
@@ -23,13 +23,14 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 8% -10%, rgba(56, 232, 255, 0.22), transparent 34rem),
-    radial-gradient(circle at 88% 6%, rgba(37, 99, 235, 0.18), transparent 34rem),
-    radial-gradient(circle at 78% 80%, rgba(147, 51, 234, 0.16), transparent 38rem),
-    radial-gradient(circle at 18% 95%, rgba(192, 132, 252, 0.08), transparent 28rem),
-    linear-gradient(180deg, #030712 0%, #050816 36%, #071126 68%, #030712 100%);
+    radial-gradient(circle at 12% -8%, rgba(37, 99, 235, 0.24), transparent 34rem),
+    radial-gradient(circle at 88% 4%, rgba(139, 92, 246, 0.2), transparent 32rem),
+    radial-gradient(circle at 76% 80%, rgba(167, 139, 250, 0.14), transparent 38rem),
+    radial-gradient(circle at 12% 92%, rgba(16, 42, 92, 0.42), transparent 30rem),
+    linear-gradient(180deg, #071126 0%, #08152d 36%, #0b1733 70%, #101b3d 100%);
   color: #f8fafc;
-  font-family: Inter, Geist, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
   min-height: 100vh;
 }
 
@@ -39,8 +40,8 @@ body::before {
   z-index: -1;
   content: "";
   background-image:
-    linear-gradient(rgba(56, 232, 255, 0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.028) 1px, transparent 1px);
+    linear-gradient(rgba(167, 139, 250, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.024) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(to bottom, black, transparent 74%);
 }
@@ -51,21 +52,21 @@ a {
 }
 
 ::selection {
-  background: rgba(56, 232, 255, 0.35);
+  background: rgba(139, 92, 246, 0.36);
 }
 
 :focus-visible {
-  outline: 2px solid #38e8ff;
+  outline: 2px solid #a78bfa;
   outline-offset: 3px;
 }
 
 .glass {
   background:
-    linear-gradient(145deg, rgba(10, 18, 40, 0.68), rgba(5, 8, 22, 0.66)) padding-box,
-    linear-gradient(145deg, rgba(56, 232, 255, 0.11), rgba(37, 99, 235, 0.08), rgba(147, 51, 234, 0.1)) border-box;
+    linear-gradient(135deg, rgba(15, 35, 75, 0.72), rgba(25, 20, 60, 0.58)) padding-box,
+    linear-gradient(135deg, rgba(96, 165, 250, 0.12), rgba(167, 139, 250, 0.14), rgba(139, 92, 246, 0.1)) border-box;
   border: 1px solid transparent;
-  box-shadow: 0 14px 54px rgba(0, 8, 28, 0.24), inset 0 1px 0 rgba(248, 250, 252, 0.035);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 50px rgba(7, 17, 38, 0.24), inset 0 1px 0 rgba(248, 250, 252, 0.025);
+  backdrop-filter: blur(8px);
 }
 
 .text-balance {

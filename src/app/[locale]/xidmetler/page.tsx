@@ -44,7 +44,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {extraServices.map((item) => {
             const Icon = item.icon;
-            return <div key={item.title[locale]} className="glass rounded-xl p-5"><Icon className="mb-4 text-cyan-300" /><h3 className="text-lg font-bold">{item.title[locale]}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{item.text[locale]}</p></div>;
+            return <div key={item.title[locale]} className="glass rounded-xl p-5"><Icon className="mb-4 text-violet-200" /><h3 className="text-lg font-bold">{item.title[locale]}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{item.text[locale]}</p></div>;
           })}
         </div>
       </section>

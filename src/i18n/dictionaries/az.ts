@@ -11,21 +11,21 @@ export const az = {
   home: {
     title: "Proqram quraşdırılması və texniki dəstək",
     description:
-      "Windows, Linux, Adobe, AutoCAD, Revit, Office, driverlər və digər peşəkar proqramlar üçün sürətli quraşdırma və dəstək. Bakı üzrə yerində xidmət, bütün Azərbaycan üzrə uzaqdan kömək.",
-    servicesTitle: "Ən çox tələb olunan xidmətlər",
-    packagesTitle: "Sərfəli quraşdırma paketləri",
+      "Windows, Linux, Adobe, AutoCAD, Revit, Office, driverlər və digər peşəkar proqramlar üçün sürətli quraşdırma xidməti. Bakı üzrə yerində xidmət, bütün Azərbaycan üzrə uzaqdan dəstək.",
+    servicesTitle: "Ən çox lazım olan xidmətlər",
+    packagesTitle: "Quraşdırma paketləri",
     howTitle: "Necə işləyir?",
     whyTitle: "Niyə Softy.az?",
     faqTitle: "Tez-tez verilən suallar",
     blogTitle: "Faydalı məqalələr",
-    finalTitle: "Lazım olan proqramları quraşdırmağa hazırsınız?",
-    finalText: "WhatsApp və ya Instagram Direct ilə yazın, sizə uyğun quraşdırma variantını seçək.",
-    steps: ["Bizə yazın", "Lazım olan proqramları seçin", "Uzaqdan və ya Bakıda təhvil xidməti ilə quraşdırılsın", "Hazır sistemdən rahat istifadə edin"],
+    finalTitle: "Lazım olan proqramı quraşdırmağa başlayaq?",
+    finalText: "WhatsApp və ya Instagram Direct ilə yazın, cihazınıza və ehtiyacınıza uyğun variantı seçək.",
+    steps: ["Bizə yazın", "Lazım olan proqramları dəqiqləşdirək", "Uzaqdan və ya Bakıda təhvil xidməti ilə quraşdırılsın", "Hazır sistemdən rahat istifadə edin"],
     why: [
-      "Aydın ünsiyyət və əvvəlcədən razılaşdırılmış iş siyahısı",
-      "Tələbələr, freelancerlər və peşəkarlar üçün praktik yanaşma",
-      "Təmiz sistem, lazımi driverlər və rahat istifadə fokuslu quraşdırma",
-      "Bakı üzrə cihaz təhvil xidməti və Azərbaycan üzrə uzaqdan dəstək"
+      "Nə ediləcəyini əvvəlcədən aydın izah edirik",
+      "Tələbə, freelancer və peşəkar ehtiyaclarını anlayan yanaşma",
+      "Sistemi lazımsız qarışıqlıq olmadan istifadəyə hazır edirik",
+      "Bakı üzrə cihaz təhvil xidməti, Azərbaycan üzrə uzaqdan dəstək"
     ]
   },
   labels: {
@@ -38,6 +38,6 @@ export const az = {
     serviceArea: "Bakı və bütün Azərbaycan",
     testimonials: "Müştəri rəyləri",
     testimonialsNote: "Real Instagram rəy ekran görüntüləri sonradan bu bölməyə əlavə edilə bilər.",
-    exactPrice: "Dəqiq qiymət proqram sayına, cihazın vəziyyətinə və tələblərə görə dəyişə bilər."
+    exactPrice: "Dəqiq qiymət proqram sayına, cihazın vəziyyətinə və istədiyiniz işə görə dəyişə bilər."
   }
 } as const;

@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
     <>
       <JsonLd data={schema} />
       <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">{new Date(post.date).toLocaleDateString("az-AZ")}</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-violet-200">{new Date(post.date).toLocaleDateString("az-AZ")}</p>
         <h1 className="mt-4 text-balance text-4xl font-black text-white md:text-5xl">{post.title[locale]}</h1>
         <p className="mt-5 text-lg leading-8 text-slate-300">{post.excerpt[locale]}</p>
         <div className="mt-10 space-y-9">
@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
             </section>
           ))}
         </div>
-        {service ? <a className="mt-10 inline-flex rounded-lg border border-cyan-300/12 bg-[#0A1228]/50 px-5 py-3 text-sm font-bold text-cyan-100 transition hover:border-cyan-200/20 hover:bg-cyan-300/7" href={localizedPath(locale, `xidmetler/${service.slug}`)}>{service.title[locale]}</a> : null}
+        {service ? <a className="mt-10 inline-flex rounded-lg border border-violet-300/14 bg-[#102A5C]/36 px-5 py-3 text-sm font-bold text-violet-100 transition hover:border-violet-200/24 hover:bg-violet-300/8" href={localizedPath(locale, `xidmetler/${service.slug}`)}>{service.title[locale]}</a> : null}
       </article>
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <h2 className="mb-5 text-2xl font-black text-white">{locale === "az" ? "Oxşar məqalələr" : locale === "ru" ? "Похожие статьи" : "Related articles"}</h2>

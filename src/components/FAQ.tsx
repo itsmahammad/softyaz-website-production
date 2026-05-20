@@ -6,7 +6,7 @@ export function FAQList({ items }: { items: { q: string; a: string }[] }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="mx-auto max-w-4xl divide-y divide-cyan-300/8 overflow-hidden rounded-2xl border border-cyan-300/10 bg-[#050816]/42">
+    <div className="mx-auto max-w-4xl divide-y divide-violet-300/8 overflow-hidden rounded-2xl border border-violet-300/12 bg-[#0B1733]/52">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const panelId = `faq-panel-${index}`;
@@ -14,13 +14,13 @@ export function FAQList({ items }: { items: { q: string; a: string }[] }) {
           <div key={item.q} className="group">
             <button
               type="button"
-              className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 text-left text-base font-bold text-white transition duration-200 hover:bg-[#38E8FF]/6 md:p-6"
+              className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 text-left text-base font-bold text-white transition duration-200 hover:bg-violet-300/7 md:p-6"
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => setOpenIndex(isOpen ? -1 : index)}
             >
               {item.q}
-              <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-cyan-300/12 text-[#67E8F9] transition duration-200 motion-reduce:transition-none ${isOpen ? "rotate-45 bg-[#38E8FF]/8" : ""}`}>+</span>
+              <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-violet-300/12 text-violet-200 transition duration-200 motion-reduce:transition-none ${isOpen ? "rotate-45 bg-violet-300/8" : ""}`}>+</span>
             </button>
             <div
               id={panelId}

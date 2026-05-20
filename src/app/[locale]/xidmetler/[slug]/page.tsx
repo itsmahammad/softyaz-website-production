@@ -71,12 +71,12 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
         <Breadcrumbs locale={locale} items={[{ label: t.nav.services, href: localizedPath(locale, "xidmetler") }, { label: service.title[locale] }]} />
         <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-cyan-300">Softy.az</p>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-violet-200">Softy.az</p>
             <h1 className="text-balance text-4xl font-black text-white md:text-5xl">{service.title[locale]}</h1>
             <p className="mt-6 text-lg leading-8 text-slate-300">{service.intro[locale]}</p>
             {supportedSoftware.length ? (
-              <div className="mt-7 rounded-2xl border border-cyan-300/8 bg-[#0A1228]/42 p-4 shadow-[inset_0_1px_0_rgba(248,250,252,0.025)]">
-                <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-cyan-200">
+              <div className="mt-7 rounded-2xl border border-violet-300/12 bg-[#102A5C]/34 p-4 shadow-[inset_0_1px_0_rgba(248,250,252,0.02)]">
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-violet-200">
                   {locale === "az" ? "Dəstəklənən proqramlar" : locale === "ru" ? "Поддерживаемые программы" : "Supported software"}
                 </p>
                 <SoftwareLogoGroup items={supportedSoftware} maxVisible={6} size="md" showLabels />
@@ -91,8 +91,8 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
               <h2 className="text-2xl font-black text-white">{locale === "az" ? "Xidmətə nələr daxildir?" : locale === "ru" ? "Что входит в услугу?" : "What is included?"}</h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {service.includes[locale].map((item) => (
-                  <div key={item} className="flex gap-3 rounded-xl border border-cyan-300/8 bg-[#0A1228]/42 p-4 text-sm text-slate-200">
-                    <CheckCircle2 className="shrink-0 text-cyan-300" size={18} />
+                  <div key={item} className="flex gap-3 rounded-xl border border-violet-300/12 bg-[#102A5C]/34 p-4 text-sm text-slate-200">
+                    <CheckCircle2 className="shrink-0 text-violet-200" size={18} />
                     {item}
                   </div>
                 ))}
@@ -102,7 +102,7 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
             <section className="mt-12">
               <h2 className="text-2xl font-black text-white">{locale === "az" ? "Kimlər üçün uyğundur?" : locale === "ru" ? "Кому подходит?" : "Who is it for?"}</h2>
               <ul className="mt-5 grid gap-3 text-slate-300">
-                {service.audience[locale].map((item) => <li key={item} className="rounded-xl border border-cyan-300/8 bg-[#0A1228]/42 p-4">{item}</li>)}
+                {service.audience[locale].map((item) => <li key={item} className="rounded-xl border border-violet-300/12 bg-[#102A5C]/34 p-4">{item}</li>)}
               </ul>
             </section>
           </div>

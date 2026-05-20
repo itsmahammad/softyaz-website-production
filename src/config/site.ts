@@ -12,7 +12,7 @@ export const siteConfig = {
   email: "hello@softy.az",
   serviceArea: ["Baku", "Azerbaijan"],
   discount: {
-    az: "3 və daha çox proqram quraşdırılmasında 20% endirim",
+    az: "3 və daha çox proqramda 20% endirim",
     ru: "20% скидка при установке 3 и более программ",
     en: "20% discount when installing 3 or more apps"
   }
