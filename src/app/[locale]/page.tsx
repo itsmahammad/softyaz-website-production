@@ -265,6 +265,29 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      {locale === "az" ? (
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="glass rounded-3xl p-6 sm:p-8">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-violet-200">{"Softy.az SEO xidm\u0259t istiqam\u0259tl\u0259ri"}</p>
+            <h2 className="mt-3 text-3xl font-black text-white">{"Bak\u0131da proqram qura\u015fd\u0131r\u0131lmas\u0131 v\u0259 komp\u00fcter format\u0131"}</h2>
+            <p className="mt-5 max-w-4xl text-base leading-8 text-slate-300">{"Softy.az komp\u00fcter v\u0259 noutbuklar \u00fc\u00e7\u00fcn proqram yaz\u0131lmas\u0131, Windows qura\u015fd\u0131r\u0131lmas\u0131, komp\u00fcter format\u0131, driver, Office, antivirus, Adobe, AutoCAD, Revit, 3ds Max v\u0259 dig\u0259r dizayn/memarl\u0131q proqramlar\u0131 \u00fczr\u0259 texniki d\u0259st\u0259k g\u00f6st\u0259rir. Bak\u0131 \u00fczr\u0259 cihaz t\u0259hvili, uy\u011fun hallarda is\u0259 Az\u0259rbaycan \u00fczr\u0259 uzaqdan d\u0259st\u0259k m\u00fcmk\u00fcnd\u00fcr."}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {[
+                ["Proqram yaz\u0131lmas\u0131", "proqram-yazilmasi"],
+                ["Komp\u00fcter format\u0131", "komputer-formati"],
+                ["Windows qura\u015fd\u0131r\u0131lmas\u0131", "windows-qurasdirilmasi"],
+                ["AutoCAD qura\u015fd\u0131r\u0131lmas\u0131", "autocad-qurasdirilmasi"],
+                ["Adobe proqramlar\u0131", "adobe-proqramlari"],
+                ["Driver qura\u015fd\u0131r\u0131lmas\u0131", "driver-qurasdirilmasi"],
+                ["Formatdan sonra proqramlar", "formatdan-sonra-proqramlar"]
+              ].map(([label, slug]) => (
+                <Link key={slug} href={localizedPath(locale, "xidmetler/" + slug)} className="rounded-xl border border-violet-300/12 bg-[#102A5C]/36 px-4 py-3 text-sm font-bold text-violet-100 transition hover:border-violet-200/24 hover:bg-violet-300/8">{label}</Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeading
           title={locale === "az" ? "Nə quraşdırırıq?" : locale === "ru" ? "Что устанавливаем?" : "What do we install?"}

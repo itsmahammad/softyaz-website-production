@@ -60,7 +60,23 @@ export const serviceSoftware: Record<string, SoftwareId[]> = {
   "driver-qurasdirilmasi": ["nvidia", "intel", "windows"],
   "komputer-optimallasdirma": ["windows", "nvidia", "intel"],
   "uzagdan-destek": ["windows", "office", "autocad", "photoshop"],
-  "arxitektura-proqramlari": ["autocad", "revit", "3ds-max", "sketchup", "solidworks", "matlab", "d5-render", "lumion", "enscape", "vray"]
+  "arxitektura-proqramlari": ["autocad", "revit", "3ds-max", "sketchup", "solidworks", "matlab", "d5-render", "lumion", "enscape", "vray"],
+  "proqram-qurasdirilmasi": ["windows", "office", "autocad", "photoshop"],
+  "proqram-yazilmasi": ["windows", "office", "autocad", "photoshop"],
+  "komputer-formati": ["windows", "office", "nvidia", "intel"],
+  "noutbuk-formati": ["windows", "office", "nvidia", "intel"],
+  "office-proqramlari": ["office", "windows"],
+  "adobe-proqramlari": ["photoshop", "illustrator", "premiere", "after-effects", "lightroom"],
+  "3ds-max-qurasdirilmasi": ["3ds-max", "vray", "autocad", "revit"],
+  "solidworks-qurasdirilmasi": ["solidworks", "nvidia", "intel"],
+  "archicad-qurasdirilmasi": ["autocad", "revit", "sketchup"],
+  "lumion-vray-enscape": ["lumion", "vray", "enscape", "d5-render"],
+  "antivirus-qurasdirilmasi": ["windows"],
+  "oyun-qurasdirilmasi": ["windows", "nvidia", "intel"],
+  "komputer-texniki-destek": ["windows", "office", "autocad"],
+  "uzaqdan-texniki-destek": ["windows", "office", "autocad", "photoshop"],
+  "komputer-optimizasiya": ["windows", "nvidia", "intel"],
+  "formatdan-sonra-proqramlar": ["windows", "office", "nvidia", "intel"]
 };
 
 export const packageSoftware: Record<string, SoftwareId[]> = {

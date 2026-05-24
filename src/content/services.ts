@@ -1,5 +1,6 @@
 import { MonitorCog, AppWindow, DraftingCompass, FileText, Cpu, ShieldCheck, Gamepad2, Headphones, Laptop, Code2 } from "lucide-react";
 import type { Locale } from "@/config/site";
+import { seoLandingServices } from "@/content/seoLandingServices";
 
 export type Service = {
   slug: string;
@@ -10,6 +11,12 @@ export type Service = {
   seoTitle: Record<Locale, string>;
   meta: Record<Locale, string>;
   intro: Record<Locale, string>;
+  h1?: Record<Locale, string>;
+  keywords?: string[];
+  problems?: Record<Locale, string[]>;
+  process?: Record<Locale, string[]>;
+  relatedSlugs?: string[];
+  disclaimer?: Record<Locale, string>;
   includes: Record<Locale, string[]>;
   audience: Record<Locale, string[]>;
   faq: Record<Locale, { q: string; a: string }[]>;
@@ -36,7 +43,7 @@ const commonFaq = {
   ]
 };
 
-export const services: Service[] = [
+const coreServices: Service[] = [
   {
     slug: "windows-qurasdirilmasi",
     category: "systems",
@@ -168,6 +175,8 @@ export const services: Service[] = [
     faq: commonFaq
   }
 ];
+
+export const services: Service[] = [...coreServices, ...seoLandingServices];
 
 export const extraServices = [
   { icon: ShieldCheck, title: { az: "Antivirus və təhlükəsizlik quraşdırılması", ru: "Антивирус и безопасность", en: "Antivirus and security setup" }, text: { az: "Təhlükəsizlik alətləri, browser safety ayarları və safe usage tövsiyələri.", ru: "Инструменты защиты, browser safety settings и рекомендации.", en: "Security tools, browser safety settings and safe usage recommendations." } },

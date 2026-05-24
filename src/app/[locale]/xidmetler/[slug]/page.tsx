@@ -41,7 +41,10 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
   const service = getService(slug);
   if (!service) notFound();
   const t = getDictionary(locale);
-  const related = services.filter((item) => item.slug !== service.slug && item.category === service.category).slice(0, 3);
+  const heading = service.h1?.[locale] ?? service.title[locale];
+  const related = service.relatedSlugs?.length
+    ? service.relatedSlugs.map((relatedSlug) => services.find((item) => item.slug === relatedSlug)).filter((item): item is (typeof services)[number] => Boolean(item)).slice(0, 6)
+    : services.filter((item) => item.slug !== service.slug && item.category === service.category).slice(0, 3);
   const supportedSoftware = getSoftwareItems(serviceSoftware[service.slug] ?? []);
   const message = locale === "az" ? `Salam, ${service.title.az} xidməti haqqında məlumat almaq istəyirəm.` : locale === "ru" ? `Здравствуйте, хочу узнать про услугу: ${service.title.ru}.` : `Hi, I want to ask about ${service.title.en}.`;
   const servicePath = localizedPath(locale, `xidmetler/${service.slug}`);
@@ -50,7 +53,7 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${serviceUrl}#service`,
-    name: service.title[locale],
+    name: heading,
     description: service.meta[locale],
     serviceType: service.category,
     provider: { "@id": `${siteConfig.siteUrl}/#business`, "@type": "ProfessionalService", name: siteConfig.name, url: siteConfig.siteUrl },
@@ -93,7 +96,7 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
         <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-violet-200">Softy.az</p>
-            <h1 className="text-balance text-4xl font-black text-white md:text-5xl">{service.title[locale]}</h1>
+            <h1 className="text-balance text-4xl font-black text-white md:text-5xl">{heading}</h1>
             <p className="mt-6 text-lg leading-8 text-slate-300">{service.intro[locale]}</p>
             {supportedSoftware.length ? (
               <div className="mt-7 rounded-2xl border border-violet-300/12 bg-[#102A5C]/34 p-4 shadow-[inset_0_1px_0_rgba(248,250,252,0.02)]">
@@ -126,6 +129,35 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
                 {service.audience[locale].map((item) => <li key={item} className="rounded-xl border border-violet-300/12 bg-[#102A5C]/34 p-4">{item}</li>)}
               </ul>
             </section>
+
+            {service.problems?.[locale]?.length ? (
+              <section className="mt-12">
+                <h2 className="text-2xl font-black text-white">{locale === "az" ? "Hans\u0131 probleml\u0259ri h\u0259ll edir?" : locale === "ru" ? "Common problems solved" : "Common problems solved"}</h2>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {service.problems[locale].map((item) => (
+                    <div key={item} className="rounded-xl border border-violet-300/12 bg-[#102A5C]/34 p-4 text-sm leading-6 text-slate-200">{item}</div>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            {service.process?.[locale]?.length ? (
+              <section className="mt-12">
+                <h2 className="text-2xl font-black text-white">{locale === "az" ? "Proses nec\u0259 gedir?" : locale === "ru" ? "How it works" : "How it works"}</h2>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {service.process[locale].map((item, index) => (
+                    <div key={item} className="rounded-xl border border-violet-300/12 bg-[#102A5C]/34 p-4 text-sm leading-6 text-slate-200">
+                      <span className="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-violet-200">0{index + 1}</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            {service.disclaimer?.[locale] ? (
+              <p className="mt-10 rounded-xl border border-violet-300/12 bg-[#102A5C]/30 p-4 text-sm leading-6 text-slate-400">{service.disclaimer[locale]}</p>
+            ) : null}
           </div>
           <aside className="glass h-fit rounded-xl p-6">
             <h2 className="text-xl font-black text-white">{t.cta.askPrice}</h2>

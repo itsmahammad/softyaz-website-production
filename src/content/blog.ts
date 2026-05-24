@@ -1,4 +1,5 @@
 import type { Locale } from "@/config/site";
+import { seoBlogPosts } from "@/content/seoBlogPosts";
 
 export type BlogPost = {
   slug: string;
@@ -13,7 +14,7 @@ export type BlogPost = {
 const ruSoon = "Материал подготовлен для клиентов Softy.az в Азербайджане. Для точной консультации по вашему устройству напишите в WhatsApp.";
 const enSoon = "This guide is prepared for Softy.az customers in Azerbaijan. For exact advice about your device, message us on WhatsApp.";
 
-export const blogPosts: BlogPost[] = [
+const coreBlogPosts: BlogPost[] = [
   {
     slug: "windows-qurasdirildiqdan-sonra-lazim-olan-proqramlar",
     date: "2026-05-20",
@@ -151,6 +152,8 @@ export const blogPosts: BlogPost[] = [
     }
   }
 ];
+
+export const blogPosts: BlogPost[] = [...seoBlogPosts, ...coreBlogPosts];
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);

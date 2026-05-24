@@ -1,6 +1,7 @@
 import { siteConfig, type Locale } from "@/config/site";
 import { blogPosts } from "@/content/blog";
 import { services } from "@/content/services";
+import { seoPackages } from "@/content/seoPackages";
 import { localizedPath } from "@/lib/i18n";
 
 const coreRoutes = ["", "xidmetler", "paketler", "faq", "blog", "elaqe"] as const;
@@ -33,7 +34,8 @@ function xmlEscape(value: string) {
 function sitemapRoutes() {
   const serviceRoutes = services.map((service) => (service.slug ? `xidmetler/${service.slug}` : null));
   const blogRoutes = blogPosts.map((post) => (post.slug ? `blog/${post.slug}` : null));
-  return Array.from(new Set([...coreRoutes, ...serviceRoutes, ...blogRoutes].map(normalizeRoute).filter((route): route is string => route !== null)));
+  const packageRoutes = seoPackages.map((pack) => (pack.slug ? `paketler/${pack.slug}` : null));
+  return Array.from(new Set([...coreRoutes, ...serviceRoutes, ...blogRoutes, ...packageRoutes].map(normalizeRoute).filter((route): route is string => route !== null)));
 }
 
 function priority(route: string) {
