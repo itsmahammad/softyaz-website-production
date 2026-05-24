@@ -8,19 +8,37 @@ type MetaInput = {
   title: string;
   description: string;
   image?: string;
+  type?: "website" | "article";
 };
 
-export function createMetadata({ locale, path = "", title, description, image = "/og.jpg" }: MetaInput): Metadata {
-  const url = `${siteConfig.siteUrl}${localizedPath(locale, path)}`;
+const ogLocales: Record<Locale, string> = {
+  az: "az_AZ",
+  ru: "ru_RU",
+  en: "en_US"
+};
+
+export function siteUrl(path = "") {
+  return new URL(path, siteConfig.siteUrl).toString();
+}
+
+export function createMetadata({ locale, path = "", title, description, image = "/og.jpg", type = "website" }: MetaInput): Metadata {
+  const pathname = localizedPath(locale, path);
+  const url = siteUrl(pathname);
+  const imageUrl = siteUrl(image);
+
   return {
     title,
     description,
+    applicationName: siteConfig.name,
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    category: "technology services",
     metadataBase: new URL(siteConfig.siteUrl),
     alternates: {
       canonical: url,
       languages: {
         ...localeAlternates(path),
-        "x-default": `${siteConfig.siteUrl}/az${path ? `/${path}` : ""}`
+        "x-default": siteUrl(localizedPath(siteConfig.defaultLocale as Locale, path))
       }
     },
     openGraph: {
@@ -28,16 +46,27 @@ export function createMetadata({ locale, path = "", title, description, image = 
       description,
       url,
       siteName: siteConfig.name,
-      locale,
-      type: "website",
-      images: [{ url: image, width: 1200, height: 630, alt: siteConfig.name }]
+      locale: ogLocales[locale],
+      alternateLocale: siteConfig.locales.filter((item) => item !== locale).map((item) => ogLocales[item]),
+      type,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: siteConfig.name + " - " + siteConfig.tagline[locale] }]
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [image]
+      images: [imageUrl]
     },
-    robots: { index: true, follow: true }
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1
+      }
+    }
   };
 }

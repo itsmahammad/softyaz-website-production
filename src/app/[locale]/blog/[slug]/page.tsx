@@ -6,8 +6,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig, type Locale } from "@/config/site";
 import { blogPosts, getBlogPost } from "@/content/blog";
 import { services } from "@/content/services";
+import { getDictionary } from "@/i18n";
 import { isLocale, localizedPath } from "@/lib/i18n";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, siteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return siteConfig.locales.flatMap((locale) => blogPosts.map((post) => ({ locale, slug: post.slug })));
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = isLocale(raw) ? raw : "az";
   const post = getBlogPost(slug);
   if (!post) return {};
-  return createMetadata({ locale, path: `blog/${slug}`, title: `${post.title[locale]} | Softy.az`, description: post.meta[locale] });
+  return createMetadata({ locale, path: `blog/${slug}`, title: `${post.title[locale]} | Softy.az`, description: post.meta[locale], type: "article" });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -27,24 +28,43 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   const locale = raw as Locale;
   const post = getBlogPost(slug);
   if (!post) notFound();
+  const t = getDictionary(locale);
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const service = post.serviceSlug ? services.find((item) => item.slug === post.serviceSlug) : undefined;
-  const url = `${siteConfig.siteUrl}${localizedPath(locale, `blog/${post.slug}`)}`;
+  const url = siteUrl(localizedPath(locale, `blog/${post.slug}`));
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${url}#article`,
     headline: post.title[locale],
     description: post.meta[locale],
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Organization", name: siteConfig.name },
-    publisher: { "@type": "Organization", name: siteConfig.name },
-    mainEntityOfPage: url
+    inLanguage: locale,
+    url,
+    image: siteUrl("/og.jpg"),
+    author: { "@type": "Organization", name: siteConfig.name, url: siteConfig.siteUrl },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: siteUrl("/icons/softyaz-mark-512.png") }
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url }
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: t.nav.home, item: siteUrl(localizedPath(locale)) },
+      { "@type": "ListItem", position: 2, name: t.nav.blog, item: siteUrl(localizedPath(locale, "blog")) },
+      { "@type": "ListItem", position: 3, name: post.title[locale], item: url }
+    ]
   };
 
   return (
     <>
       <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema} />
       <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-violet-200">{new Date(post.date).toLocaleDateString("az-AZ")}</p>
         <h1 className="mt-4 text-balance text-4xl font-black text-white md:text-5xl">{post.title[locale]}</h1>

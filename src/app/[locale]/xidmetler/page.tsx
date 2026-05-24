@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ServiceCard } from "@/components/Cards";
+import { JsonLd } from "@/components/JsonLd";
 import { CTASection } from "@/components/CTASection";
 import { SectionHeading } from "@/components/SectionHeading";
 import { categoryLabels, extraServices, services } from "@/content/services";
 import { getDictionary } from "@/i18n";
-import { isLocale } from "@/lib/i18n";
-import { createMetadata } from "@/lib/seo";
+import { isLocale, localizedPath } from "@/lib/i18n";
+import { createMetadata, siteUrl } from "@/lib/seo";
 import type { Locale } from "@/config/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -24,9 +25,22 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   const locale = (isLocale(raw) ? raw : "az") as Locale;
   const t = getDictionary(locale);
   const categories = Object.keys(categoryLabels[locale]) as Array<keyof typeof categoryLabels[typeof locale]>;
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t.nav.services,
+    inLanguage: locale,
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title[locale],
+      url: siteUrl(localizedPath(locale, `xidmetler/${service.slug}`))
+    }))
+  };
 
   return (
     <>
+      <JsonLd data={servicesSchema} />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionHeading title={t.nav.services} text={locale === "az" ? "Proqram quraşdırılması, sistem setup, driverlər və texniki dəstək üçün bütün əsas xidmətlər." : locale === "ru" ? "Все основные услуги по установке программ, настройке системы, драйверам и поддержке." : "All core services for software installation, system setup, drivers and support."} />
         <div className="grid gap-10">

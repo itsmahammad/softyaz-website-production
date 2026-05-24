@@ -10,7 +10,7 @@ export function localizedPath(locale: Locale, path = "") {
 }
 
 export function localeAlternates(path = "") {
-  return Object.fromEntries(siteConfig.locales.map((locale) => [locale, `${siteConfig.siteUrl}${localizedPath(locale, path)}`]));
+  return Object.fromEntries(siteConfig.locales.map((locale) => [locale, new URL(localizedPath(locale, path), siteConfig.siteUrl).toString()]));
 }
 
 export function whatsappLink(message: string) {

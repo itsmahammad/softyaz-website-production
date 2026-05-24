@@ -12,8 +12,15 @@ import { getService, services } from "@/content/services";
 import { getSoftwareItems, serviceSoftware } from "@/content/software";
 import { getDictionary } from "@/i18n";
 import { isLocale, localizedPath, whatsappLink } from "@/lib/i18n";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, siteUrl } from "@/lib/seo";
 import { SoftwareLogoGroup } from "@/components/SoftwareLogo";
+
+function serviceConfigArea() {
+  return [
+    { "@type": "City", name: "Baku" },
+    { "@type": "Country", name: "Azerbaijan" }
+  ];
+}
 
 export function generateStaticParams() {
   return siteConfig.locales.flatMap((locale) => services.map((service) => ({ locale, slug: service.slug })));
@@ -37,15 +44,29 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
   const related = services.filter((item) => item.slug !== service.slug && item.category === service.category).slice(0, 3);
   const supportedSoftware = getSoftwareItems(serviceSoftware[service.slug] ?? []);
   const message = locale === "az" ? `Salam, ${service.title.az} xidməti haqqında məlumat almaq istəyirəm.` : locale === "ru" ? `Здравствуйте, хочу узнать про услугу: ${service.title.ru}.` : `Hi, I want to ask about ${service.title.en}.`;
-  const serviceUrl = `${siteConfig.siteUrl}${localizedPath(locale, `xidmetler/${service.slug}`)}`;
+  const servicePath = localizedPath(locale, `xidmetler/${service.slug}`);
+  const serviceUrl = siteUrl(servicePath);
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${serviceUrl}#service`,
     name: service.title[locale],
     description: service.meta[locale],
-    provider: { "@type": "ProfessionalService", name: siteConfig.name, url: siteConfig.siteUrl },
-    areaServed: ["Baku", "Azerbaijan"],
-    url: serviceUrl
+    serviceType: service.category,
+    provider: { "@id": `${siteConfig.siteUrl}/#business`, "@type": "ProfessionalService", name: siteConfig.name, url: siteConfig.siteUrl },
+    areaServed: serviceConfigArea(),
+    availableLanguage: siteConfig.locales,
+    inLanguage: locale,
+    image: siteUrl("/og.jpg"),
+    url: serviceUrl,
+    mainEntityOfPage: serviceUrl,
+    audience: service.audience[locale].map((name) => ({ "@type": "Audience", name })),
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "AZN",
+      url: serviceUrl
+    }
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -56,8 +77,8 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: t.nav.home, item: `${siteConfig.siteUrl}${localizedPath(locale)}` },
-      { "@type": "ListItem", position: 2, name: t.nav.services, item: `${siteConfig.siteUrl}${localizedPath(locale, "xidmetler")}` },
+      { "@type": "ListItem", position: 1, name: t.nav.home, item: siteUrl(localizedPath(locale)) },
+      { "@type": "ListItem", position: 2, name: t.nav.services, item: siteUrl(localizedPath(locale, "xidmetler")) },
       { "@type": "ListItem", position: 3, name: service.title[locale], item: serviceUrl }
     ]
   };

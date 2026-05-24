@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { isLocale } from "@/lib/i18n";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
   },
   description: "Softy.az proqram quraşdırılması, Windows/Linux setup, driverlər, optimizasiya və uzaqdan texniki dəstək xidmətləri göstərir.",
   metadataBase: new URL(siteConfig.siteUrl),
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   verification: {
     google: "QmGPGad-khTwaH5E8X8cnr4Gd5u2arWzkkoMAJ_h26I"
   },
@@ -22,9 +26,13 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children, params }: { children: React.ReactNode; params?: Promise<{ locale?: string }> }) {
+  const resolvedParams = params ? await params : undefined;
+  const rawLocale = resolvedParams?.locale ?? "";
+  const locale = isLocale(rawLocale) ? rawLocale : siteConfig.defaultLocale;
+
   return (
-    <html lang="az">
+    <html lang={locale}>
       <body>
         {children}
         <Analytics />

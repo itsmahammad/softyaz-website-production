@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { PackageCard } from "@/components/Cards";
+import { JsonLd } from "@/components/JsonLd";
 import { CTASection } from "@/components/CTASection";
 import { SectionHeading } from "@/components/SectionHeading";
 import { siteConfig, type Locale } from "@/config/site";
 import { packages } from "@/content/packages";
 import { getDictionary } from "@/i18n";
-import { isLocale } from "@/lib/i18n";
-import { createMetadata } from "@/lib/seo";
+import { isLocale, localizedPath } from "@/lib/i18n";
+import { createMetadata, siteUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -18,8 +19,30 @@ export default async function PackagesPage({ params }: { params: Promise<{ local
   const { locale: raw } = await params;
   const locale = (isLocale(raw) ? raw : "az") as Locale;
   const t = getDictionary(locale);
+  const packagesUrl = siteUrl(localizedPath(locale, "paketler"));
+  const packagesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t.nav.packages,
+    inLanguage: locale,
+    url: packagesUrl,
+    itemListElement: packages.map((pack, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: pack.title[locale],
+        description: pack.description[locale],
+        provider: { "@id": `${siteConfig.siteUrl}/#business`, "@type": "ProfessionalService", name: siteConfig.name },
+        areaServed: ["Baku", "Azerbaijan"],
+        offers: { "@type": "Offer", priceCurrency: "AZN", url: packagesUrl, availability: "https://schema.org/InStock" }
+      }
+    }))
+  };
+
   return (
     <>
+      <JsonLd data={packagesSchema} />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionHeading title={t.nav.packages} text={siteConfig.discount[locale]} />
         <div className="mb-8 rounded-xl border border-violet-300/12 bg-[#102A5C]/36 p-5 text-sm leading-6 text-violet-50 shadow-[inset_0_1px_0_rgba(248,250,252,0.02)]">{t.labels.exactPrice}</div>
