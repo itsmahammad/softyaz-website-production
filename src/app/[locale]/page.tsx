@@ -60,7 +60,7 @@ const popularRequests = [
   { label: "AutoCAD", status: "popular", software: "autocad" },
   { label: "Revit", status: "popular", software: "revit" },
   { label: "Office", status: "setup", software: "office" },
-  { label: "Driverl?r", status: "setup", software: "nvidia" }
+  { label: "Drivers", status: "setup", software: "nvidia" }
 ] satisfies Array<{ label: string; status: "setup" | "popular"; software: SoftwareId }>;
 
 const popularStatus: Record<Locale, Record<"setup" | "popular", string>> = {
