@@ -1,7 +1,7 @@
 import { Laptop, Palette, Gamepad2, MonitorCog } from "lucide-react";
 import type { Locale } from "@/config/site";
 
-const az = (value: string) => value.replaceAll("{e}", "\u0259").replaceAll("{sh}", "\u015f").replaceAll("{i}", "\u0131").replaceAll("{g}", "\u011f").replaceAll("{u}", "\u00fc").replaceAll("{o}", "\u00f6").replaceAll("{ch}", "\u00e7");
+const az = (value: string) => value.replaceAll("{e}", "\u0259").replaceAll("{E}", "\u018f").replaceAll("{sh}", "\u015f").replaceAll("{Sh}", "\u015e").replaceAll("{i}", "\u0131").replaceAll("{I}", "\u0130").replaceAll("{g}", "\u011f").replaceAll("{G}", "\u011e").replaceAll("{u}", "\u00fc").replaceAll("{U}", "\u00dc").replaceAll("{o}", "\u00f6").replaceAll("{O}", "\u00d6").replaceAll("{ch}", "\u00e7").replaceAll("{Ch}", "\u00c7");
 const tr = (value: string, en: string) => ({ az: az(value), ru: en, en });
 const list = (items: string[]) => ({ az: items.map(az), ru: items.map((item) => item.replaceAll(/\{[^}]+\}/g, "")), en: items.map((item) => item.replaceAll(/\{[^}]+\}/g, "")) });
 

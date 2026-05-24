@@ -42,7 +42,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
     <>
       <JsonLd data={servicesSchema} />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionHeading title={t.nav.services} text={locale === "az" ? "Proqram quraşdırılması, sistem setup, driverlər və texniki dəstək üçün bütün əsas xidmətlər." : locale === "ru" ? "Все основные услуги по установке программ, настройке системы, драйверам и поддержке." : "All core services for software installation, system setup, drivers and support."} />
+        <SectionHeading title={t.nav.services} text={locale === "az" ? "Proqram quraşdırılması, sistem qurulumu, driverlər və texniki dəstək üçün bütün əsas xidmətlər." : locale === "ru" ? "Все основные услуги по установке программ, настройке системы, драйверам и поддержке." : "All core services for software installation, system setup, drivers and support."} />
         <div className="grid gap-10">
           {categories.map((category) => {
             const group = services.filter((service) => service.category === category);

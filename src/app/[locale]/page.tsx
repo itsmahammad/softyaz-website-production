@@ -55,13 +55,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const popularRequests = [
-  { label: "Windows 11", status: "Setup", software: "windows" },
-  { label: "Adobe", status: "Popular", software: "photoshop" },
-  { label: "AutoCAD", status: "Popular", software: "autocad" },
-  { label: "Revit", status: "Popular", software: "revit" },
-  { label: "Office", status: "Setup", software: "office" },
-  { label: "Driver setup", status: "Setup", software: "nvidia" }
-] satisfies Array<{ label: string; status: string; software: SoftwareId }>;
+  { label: "Windows 11", status: "setup", software: "windows" },
+  { label: "Adobe", status: "popular", software: "photoshop" },
+  { label: "AutoCAD", status: "popular", software: "autocad" },
+  { label: "Revit", status: "popular", software: "revit" },
+  { label: "Office", status: "setup", software: "office" },
+  { label: "Driverl?r", status: "setup", software: "nvidia" }
+] satisfies Array<{ label: string; status: "setup" | "popular"; software: SoftwareId }>;
+
+const popularStatus: Record<Locale, Record<"setup" | "popular", string>> = {
+  az: { setup: "Qurulum", popular: "Populyar" },
+  ru: { setup: "?????????", popular: "?????????" },
+  en: { setup: "Setup", popular: "Popular" }
+};
 
 const categoryLogoIds: Record<string, SoftwareId[]> = {
   "xidmetler/windows-qurasdirilmasi": ["windows", "linux", "macos"],
@@ -189,16 +195,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <JsonLd data={faqSchema} />
 
       <section className="relative overflow-hidden">
-        <div className="absolute left-[-12rem] top-[-14rem] h-[34rem] w-[34rem] rounded-full bg-[#2563EB]/18 blur-3xl" />
-        <div className="absolute right-[-10rem] top-20 h-[30rem] w-[30rem] rounded-full bg-[#8B5CF6]/18 blur-3xl" />
-        <div className="absolute bottom-[-16rem] right-[-12rem] h-[36rem] w-[36rem] rounded-full bg-[#A78BFA]/12 blur-3xl" />
+        <div className="absolute left-[-12rem] top-[-14rem] h-[34rem] w-[34rem] rounded-full bg-[#2563EB]/14 blur-3xl" />
+        <div className="absolute right-[-10rem] top-20 h-[30rem] w-[30rem] rounded-full bg-[#8B5CF6]/14 blur-3xl" />
+        <div className="absolute bottom-[-16rem] right-[-12rem] h-[36rem] w-[36rem] rounded-full bg-[#A78BFA]/9 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-14 sm:px-6 md:grid-cols-[1.05fr_0.95fr] md:pb-24 md:pt-20 lg:px-8">
           <div className="flex flex-col justify-center">
-            <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-violet-300/14 bg-[#102A5C]/38 px-4 py-2 text-sm font-bold text-violet-100 shadow-[inset_0_1px_0_rgba(248,250,252,0.025)]">
+            <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-violet-300/10 bg-[#102A5C]/32 px-4 py-2 text-sm font-semibold text-violet-100 shadow-[inset_0_1px_0_rgba(248,250,252,0.02)]">
               <Sparkles size={16} /> {t.labels.serviceArea}
             </p>
-            <h1 className="text-balance text-4xl font-black tracking-normal text-white sm:text-5xl lg:text-6xl">{t.home.title}</h1>
-            <div className="mt-6 max-w-2xl space-y-3 text-lg leading-8 text-slate-300">
+            <h1 className="text-balance text-4xl font-extrabold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">{t.home.title}</h1>
+            <div className="mt-6 max-w-2xl space-y-3 text-lg leading-8 text-slate-300/95">
               {heroLines.map((line) => (
                 <p key={line}>{line}</p>
               ))}
@@ -216,28 +222,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
 
-          <div className="glass soft-float relative overflow-hidden rounded-3xl p-5 motion-reduce:animate-none sm:p-6">
+          <div className="glass soft-float relative overflow-hidden rounded-[1.75rem] p-5 motion-reduce:animate-none sm:p-6">
             <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#2563EB]/14 blur-3xl" />
             <div className="absolute -bottom-20 left-10 h-56 w-56 rounded-full bg-[#8B5CF6]/16 blur-3xl" />
             <div className="relative">
               <div className="mb-5 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-violet-200">Softy.az</p>
-                  <h2 className="mt-2 text-2xl font-black text-white">{locale === "az" ? "Ən çox istənilənlər" : locale === "ru" ? "Чаще всего просят" : "Most requested"}</h2>
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-violet-200">Softy.az</p>
+                  <h2 className="mt-2 text-2xl font-semibold tracking-[-0.02em] text-white">{locale === "az" ? "Ən çox istənilənlər" : locale === "ru" ? "Чаще всего просят" : "Most requested"}</h2>
                 </div>
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#2563EB] via-[#4F46E5] to-[#8B5CF6] text-white shadow-[0_18px_50px_rgba(139,92,246,0.2)]">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#3B6FF2] via-[#5B6EF1] to-[#8B5CF6] text-white shadow-[0_16px_38px_rgba(139,92,246,0.16)]">
                   <ShieldCheck size={24} />
                 </div>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
                 {popularRequests.map((item) => {
                   return (
-                    <div key={item.label} className="rounded-2xl border border-violet-300/10 bg-white/[0.04] p-4">
+                    <div key={item.label} className="rounded-2xl border border-violet-300/8 bg-white/[0.035] p-4 transition duration-200 hover:bg-white/[0.05] hover:border-violet-300/14">
                       <div className="flex items-center gap-3">
                         <SoftwareLogo item={softwareById[item.software]} size="md" />
                         <div className="min-w-0">
-                          <p className="font-bold text-white">{item.label}</p>
-                          <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-violet-200">{item.status}</p>
+                          <p className="font-semibold text-white">{item.label}</p>
+                          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.13em] text-violet-200/90">{popularStatus[locale][item.status]}</p>
                         </div>
                       </div>
                     </div>
@@ -254,8 +260,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {trustBadges.map((badge) => {
             const Icon = badge.icon;
             return (
-              <div key={badge.text} className="rounded-2xl border border-violet-300/12 bg-gradient-to-br from-[#102A5C]/42 to-[#24194F]/32 p-4 text-sm font-bold leading-6 text-slate-100 shadow-[inset_0_1px_0_rgba(248,250,252,0.02)]">
-                <span className="mb-3 grid h-9 w-9 place-items-center rounded-xl bg-violet-300/10 text-violet-200">
+              <div key={badge.text} className="rounded-2xl border border-violet-300/9 bg-gradient-to-br from-[#102A5C]/34 to-[#24194F]/28 p-4 text-sm font-semibold leading-6 text-slate-100 shadow-[inset_0_1px_0_rgba(248,250,252,0.018)] transition duration-200 hover:bg-violet-300/[0.035]">
+                <span className="mb-3 grid h-9 w-9 place-items-center rounded-xl bg-violet-300/8 text-violet-200">
                   <Icon size={20} />
                 </span>
                 {badge.text}
@@ -268,7 +274,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {locale === "az" ? (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="glass rounded-3xl p-6 sm:p-8">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-violet-200">{"Softy.az SEO xidm\u0259t istiqam\u0259tl\u0259ri"}</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-violet-200">{"Populyar xidm\u0259t istiqam\u0259tl\u0259ri"}</p>
             <h2 className="mt-3 text-3xl font-black text-white">{"Bak\u0131da proqram qura\u015fd\u0131r\u0131lmas\u0131 v\u0259 komp\u00fcter format\u0131"}</h2>
             <p className="mt-5 max-w-4xl text-base leading-8 text-slate-300">{"Softy.az komp\u00fcter v\u0259 noutbuklar \u00fc\u00e7\u00fcn proqram yaz\u0131lmas\u0131, Windows qura\u015fd\u0131r\u0131lmas\u0131, komp\u00fcter format\u0131, driver, Office, antivirus, Adobe, AutoCAD, Revit, 3ds Max v\u0259 dig\u0259r dizayn/memarl\u0131q proqramlar\u0131 \u00fczr\u0259 texniki d\u0259st\u0259k g\u00f6st\u0259rir. Bak\u0131 \u00fczr\u0259 cihaz t\u0259hvili, uy\u011fun hallarda is\u0259 Az\u0259rbaycan \u00fczr\u0259 uzaqdan d\u0259st\u0259k m\u00fcmk\u00fcnd\u00fcr."}</p>
             <div className="mt-6 flex flex-wrap gap-3">

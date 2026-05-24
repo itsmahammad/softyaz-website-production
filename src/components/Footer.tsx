@@ -13,7 +13,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="md:col-span-2">
           <p className="text-xl font-black">Softy.az</p>
           <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">
-            {locale === "az" ? "Proqram quraşdırılması, sistem setup, driverlər və uzaqdan texniki dəstək. Bakı üzrə xidmət, Azərbaycan üzrə remote yardım." : locale === "ru" ? "Установка программ, настройка систем, драйверы и удаленная техническая поддержка в Азербайджане." : "Software installation, system setup, drivers and remote technical support in Azerbaijan."}
+            {locale === "az" ? "Proqram quraşdırılması, sistem qurulumu, driverlər və uzaqdan texniki dəstək. Bakı üzrə xidmət, Azərbaycan üzrə uzaqdan yardım." : locale === "ru" ? "Установка программ, настройка систем, драйверы и удаленная техническая поддержка в Азербайджане." : "Software installation, system setup, drivers and remote technical support in Azerbaijan."}
           </p>
         </div>
         <div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Softy.az | Proqram quraşdırılması və texniki dəstək",
     template: "%s"
   },
-  description: "Softy.az proqram quraşdırılması, Windows/Linux setup, driverlər, optimizasiya və uzaqdan texniki dəstək xidmətləri göstərir.",
+  description: "Softy.az proqram quraşdırılması, Windows/Linux qurulumu, driverlər, optimizasiya və uzaqdan texniki dəstək xidmətləri göstərir.",
   metadataBase: new URL(siteConfig.siteUrl),
   authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   creator: siteConfig.name,

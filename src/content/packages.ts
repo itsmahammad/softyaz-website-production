@@ -15,7 +15,7 @@ export const packages: Package[] = [
     title: { az: "Ofis Paketi", ru: "Офисный пакет", en: "Office Pack" },
     price: { az: "15 AZN-dən başlayaraq", ru: "от 15 AZN", en: "starting from 15 AZN" },
     description: { az: "Təhsil, ofis və gündəlik sənəd işləri üçün əsas proqramlar.", ru: "Базовые программы для учебы, офиса и документов.", en: "Essential apps for study, office and documents." },
-    includes: { az: ["Microsoft Office", "PDF tools", "Browser setup", "Əsas faydalı proqramlar"], ru: ["Microsoft Office", "PDF tools", "Browser setup", "Полезные базовые программы"], en: ["Microsoft Office", "PDF tools", "Browser setup", "Useful everyday apps"] }
+    includes: { az: ["Microsoft Office", "PDF alətləri", "Brauzer qurulumu", "Əsas faydalı proqramlar"], ru: ["Microsoft Office", "PDF tools", "Настройка браузера", "Полезные базовые программы"], en: ["Microsoft Office", "PDF tools", "Browser setup", "Useful everyday apps"] }
   },
   {
     id: "adobe",
@@ -37,13 +37,13 @@ export const packages: Package[] = [
     title: { az: "Tam Quraşdırma Paketi", ru: "Полный пакет настройки", en: "Full Setup Pack" },
     price: { az: "Qiymət üçün yazın", ru: "Уточнить цену", en: "Contact for price" },
     description: { az: "Yeni və ya format olunmuş cihazı işə tam hazır vəziyyətə gətirmək.", ru: "Подготовка нового или отформатированного устройства к работе.", en: "Prepare a new or formatted device for real work." },
-    includes: { az: ["Windows/Linux", "Driverlər", "Office", "Peşəkar proqramlar", "Optimizasiya", "Təhlükəsizlik setup"], ru: ["Windows/Linux", "Драйверы", "Office", "Профессиональные программы", "Оптимизация", "Безопасность"], en: ["Windows/Linux", "Drivers", "Office", "Professional apps", "Optimization", "Security setup"] }
+    includes: { az: ["Windows/Linux", "Driverlər", "Office", "Peşəkar proqramlar", "Optimizasiya", "Təhlükəsizlik sazlaması"], ru: ["Windows/Linux", "Драйверы", "Office", "Профессиональные программы", "Оптимизация", "Безопасность"], en: ["Windows/Linux", "Drivers", "Office", "Professional apps", "Optimization", "Security setup"] }
   },
   {
     id: "remote",
     title: { az: "Uzaqdan Dəstək", ru: "Удаленная поддержка", en: "Remote Support Pack" },
     price: { az: "Qiymət üçün yazın", ru: "Уточнить цену", en: "Contact for price" },
     description: { az: "Cihazı gətirmədən proqram problemi və sazlama üçün dəstək.", ru: "Помощь с программами и настройкой без передачи устройства.", en: "Software troubleshooting and setup without handing off the device." },
-    includes: { az: ["Remote problem solving", "App setup", "Software errors", "Konsultasiya"], ru: ["Remote problem solving", "App setup", "Software errors", "Консультация"], en: ["Remote problem solving", "App setup", "Software errors", "Consultation"] }
+    includes: { az: ["Uzaqdan problem həlli", "Proqram sazlaması", "Proqram xətaları", "Konsultasiya"], ru: ["Решение проблем удаленно", "Настройка приложений", "Ошибки программ", "Консультация"], en: ["Remote problem solving", "App setup", "Software errors", "Consultation"] }
   }
 ];

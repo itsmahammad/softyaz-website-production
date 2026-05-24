@@ -35,7 +35,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             <ul className="mt-4 grid gap-3 text-sm leading-6 text-slate-300">
               <li>{locale === "az" ? "Cihaz modeli və Windows/macOS/Linux versiyası" : locale === "ru" ? "Модель устройства и версия Windows/macOS/Linux" : "Device model and Windows/macOS/Linux version"}</li>
               <li>{locale === "az" ? "Lazım olan proqramların siyahısı" : locale === "ru" ? "Список нужных программ" : "List of required apps"}</li>
-              <li>{locale === "az" ? "Varsa xəta mesajının screenshot-u" : locale === "ru" ? "Скриншот ошибки, если есть" : "Screenshot of the error, if any"}</li>
+              <li>{locale === "az" ? "Varsa xəta mesajının skrinşotu" : locale === "ru" ? "Скриншот ошибки, если есть" : "Screenshot of the error, if any"}</li>
             </ul>
           </div>
           <div className="glass rounded-xl p-6">

@@ -2,7 +2,7 @@ import type { Locale } from "@/config/site";
 
 export const faqs: Record<Locale, { q: string; a: string }[]> = {
   az: [
-    { q: "Proqram quraşdırılması nə qədər vaxt aparır?", a: "Adətən sadə proqramlar qısa vaxtda hazırlanır. Windows, driverlər və bir neçə peşəkar proqram olan tam setup isə cihazın vəziyyətindən və proqram sayından asılıdır." },
+    { q: "Proqram quraşdırılması nə qədər vaxt aparır?", a: "Adətən sadə proqramlar qısa vaxtda hazırlanır. Windows, driverlər və bir neçə peşəkar proqram olan tam qurulum isə cihazın vəziyyətindən və proqram sayından asılıdır." },
     { q: "Uzaqdan proqram quraşdırmaq mümkündür?", a: "Bəli, uyğun hallarda uzaqdan bağlantı ilə proqram quraşdırılması, sazlama və xətaların həlli mümkündür." },
     { q: "Bakıda laptopu təhvil verib sonra götürmək olur?", a: "Bəli, Bakı üzrə razılaşdırılmış qaydada laptop və ya PC qəbul edilə bilər və hazır olduqdan sonra geri qaytarılır." },
     { q: "Hansı proqramları quraşdırırsınız?", a: "Windows, Linux, Office, Adobe, AutoCAD, Revit, 3ds Max, SketchUp, SolidWorks, MATLAB, render alətləri, driverlər və gündəlik istifadə proqramları üzrə dəstək verilir." },
@@ -13,10 +13,10 @@ export const faqs: Record<Locale, { q: string; a: string }[]> = {
     { q: "3 və daha çox proqram üçün endirim var?", a: "Bəli, 3 və daha çox proqram quraşdırılmasında 20% endirim tətbiq olunur." },
     { q: "Quraşdırmadan sonra problem olsa kömək edirsiniz?", a: "Bəli, quraşdırmadan sonra yaranan uyğun texniki problemlər üçün dəstək göstərilir." },
     { q: "Tələbələr üçün uyğun paketlər var?", a: "Bəli, memarlıq, dizayn, mühəndislik və ofis işləri üçün tələbələrə uyğun paketlər seçilə bilər." },
-    { q: "Qiymətlər nədən asılıdır?", a: "Qiymət proqram sayından, proqram növündən, cihazın vəziyyətindən, remote və ya cihaz təhvil formatından asılıdır." },
-    { q: "Oyun və lazımi komponentləri quraşdırırsınız?", a: "Bəli, oyun setup, DirectX, Visual C++ redistributables, driver dəstəyi və performans ayarları üzrə kömək edilir." },
+    { q: "Qiymətlər nədən asılıdır?", a: "Qiymət proqram sayından, proqram növündən, cihazın vəziyyətindən, uzaqdan dəstək və ya cihaz təhvili formatından asılıdır." },
+    { q: "Oyun və lazımi komponentləri quraşdırırsınız?", a: "Bəli, oyun quraşdırılması, DirectX, Visual C++ redistributable paketləri, driver dəstəyi və performans ayarları üzrə kömək edilir." },
     { q: "Kompüter zəifdirsə hansı proqramların uyğun olduğunu deyirsiniz?", a: "Bəli, cihazın RAM, prosessor, disk və video kartına görə uyğun proqram və versiya seçimi üzrə məsləhət verilir." },
-    { q: "Antivirus və təhlükəsizlik ayarları edirsiniz?", a: "Bəli, təhlükəsizlik alətləri, browser safety ayarları, malware check yönləndirməsi və safe usage tövsiyələri verilir." }
+    { q: "Antivirus və təhlükəsizlik ayarları edirsiniz?", a: "Bəli, təhlükəsizlik alətləri, brauzer təhlükəsizliyi ayarları, zərərli proqram yoxlanışı və təhlükəsiz istifadə tövsiyələri verilir." }
   ],
   ru: [
     { q: "Сколько времени занимает установка программ?", a: "Зависит от количества программ и состояния устройства. Простые задачи выполняются быстро, полный setup занимает больше времени." },

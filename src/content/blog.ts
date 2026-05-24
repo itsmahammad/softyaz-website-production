@@ -20,13 +20,13 @@ const coreBlogPosts: BlogPost[] = [
     date: "2026-05-20",
     serviceSlug: "windows-qurasdirilmasi",
     title: { az: "Windows quraşdırıldıqdan sonra hansı proqramlar lazımdır?", ru: "Какие программы нужны после установки Windows?", en: "Which apps do you need after installing Windows?" },
-    meta: { az: "Windows quraşdırıldıqdan sonra lazım olan əsas proqramlar: driverlər, Office, PDF, browser, təhlükəsizlik və gündəlik istifadə alətləri.", ru: "Какие программы установить после Windows: драйверы, Office, PDF, browser, безопасность.", en: "Essential apps after Windows setup: drivers, Office, PDF, browser, security and everyday tools." },
+    meta: { az: "Windows quraşdırıldıqdan sonra lazım olan əsas proqramlar: driverlər, Office, PDF, brauzer, təhlükəsizlik və gündəlik istifadə alətləri.", ru: "Какие программы установить после Windows: драйверы, Office, PDF, browser, безопасность.", en: "Essential apps after Windows setup: drivers, Office, PDF, browser, security and everyday tools." },
     excerpt: { az: "Yeni Windows-dan sonra sistemi rahat və stabil istifadə etmək üçün əsas proqram siyahısı.", ru: "Список базовых программ для удобной работы после Windows setup.", en: "A practical checklist for a comfortable Windows setup." },
     sections: {
       az: [
         { heading: "Əvvəlcə driverlər yoxlanmalıdır", body: ["Windows quraşdırıldıqdan sonra Wi-Fi, səs, video kart, chipset və printer driverləri yoxlanmalıdır. Driver düzgün olmayanda sistem işləsə də performans və stabilik zəif ola bilər."] },
         { heading: "Gündəlik istifadə üçün əsas proqramlar", body: ["Browser, Office, PDF alətləri, arxiv proqramı, media player və lazım olan messencerlər sistemi gündəlik işə hazır edir. Tələbə və ofis istifadəçiləri üçün bu mərhələ xüsusilə vacibdir."] },
-        { heading: "Təhlükəsizlik və optimizasiya", body: ["Lazımsız startup proqramlarını azaltmaq, browser safety ayarlarını yoxlamaq və storage təmizliyini planlamaq laptopun daha rahat işləməsinə kömək edir.", "Softy.az Windows setup zamanı cihazınıza uyğun əsas proqramları və driverləri hazırlaya bilər."] }
+        { heading: "Təhlükəsizlik və optimizasiya", body: ["Lazımsız startup proqramlarını azaltmaq, brauzer təhlükəsizliyi ayarlarını yoxlamaq və disk təmizliyini planlamaq laptopun daha rahat işləməsinə kömək edir.", "Softy.az Windows qurulumu zamanı cihazınıza uyğun əsas proqramları və driverləri hazırlaya bilər."] }
       ],
       ru: [{ heading: "Кратко", body: [ruSoon, "После Windows обычно нужны драйверы, Office, PDF tools, browser, security settings и базовая оптимизация."] }],
       en: [{ heading: "Quick guide", body: [enSoon, "After Windows, you usually need drivers, Office, PDF tools, a browser, security settings and basic optimization."] }]
@@ -93,7 +93,7 @@ const coreBlogPosts: BlogPost[] = [
     sections: {
       az: [
         { heading: "Faylları backup edin", body: ["Desktop, Documents, Downloads, şəkillər və layihə qovluqları yoxlanmalıdır. Formatdan sonra silinən faylları geri qaytarmaq həmişə mümkün olmur."] },
-        { heading: "Lazım olan proqramları yazın", body: ["Office, Adobe, AutoCAD, Revit, browser, printer driver və digər ehtiyaclar əvvəlcədən siyahıya alınsa, setup daha düzgün planlanır."] },
+        { heading: "Lazım olan proqramları yazın", body: ["Office, Adobe, AutoCAD, Revit, brauzer, printer driveri və digər ehtiyaclar əvvəlcədən siyahıya alınsa, qurulum daha düzgün planlanır."] },
         { heading: "Hesab və parollar", body: ["Microsoft, Google, Adobe və digər hesab girişlərini əvvəlcədən yoxlamaq formatdan sonra vaxt itkisinin qarşısını alır."] }
       ],
       ru: [{ heading: "Кратко", body: [ruSoon, "Перед форматированием важно проверить backup, список программ, драйверы и доступ к аккаунтам."] }],
@@ -143,7 +143,7 @@ const coreBlogPosts: BlogPost[] = [
     excerpt: { az: "Cihazı gətirmədən proqram problemini həll etmək üçün proses necə gedir.", ru: "How software issues can be solved without bringing the device.", en: "How software issues can be solved without bringing the device." },
     sections: {
       az: [
-        { heading: "Əvvəl problem dəqiqləşdirilir", body: ["WhatsApp və ya Instagram Direct vasitəsilə cihaz, sistem və problem haqqında məlumat alınır. Screenshot və xəta mesajı işi sürətləndirir."] },
+        { heading: "Əvvəl problem dəqiqləşdirilir", body: ["WhatsApp və ya Instagram Direct vasitəsilə cihaz, sistem və problem haqqında məlumat alınır. Skrinşot və xəta mesajı işi sürətləndirir."] },
         { heading: "Təhlükəsiz bağlantı", body: ["Uyğun hallarda uzaqdan bağlantı proqramı ilə cihazınıza qoşulub quraşdırma və sazlama edilir. Şəxsi fayllarla bağlı davranış əvvəlcədən razılaşdırılır."] },
         { heading: "Yekun yoxlama", body: ["Problem həll olunduqdan sonra proqramın açılması, əsas funksiyaların işləməsi və lazımi ayarlar yoxlanılır."] }
       ],

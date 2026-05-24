@@ -35,7 +35,7 @@ export function SoftwareLogo({ item, size = "md", showLabel = false, className }
   return (
     <span
       className={clsx(
-        "logo-chip inline-flex items-center justify-center gap-2 rounded-xl border border-violet-300/10 bg-white/[0.035] font-black text-white shadow-[inset_0_1px_0_rgba(248,250,252,0.02)] transition duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:border-violet-200/18 motion-safe:hover:bg-white/[0.055] motion-safe:hover:shadow-[0_12px_26px_rgba(139,92,246,0.08)]",
+        "logo-chip inline-flex items-center justify-center gap-2 rounded-xl border border-violet-300/8 bg-white/[0.03] font-semibold text-white shadow-[inset_0_1px_0_rgba(248,250,252,0.018)] transition duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:border-violet-200/14 motion-safe:hover:bg-white/[0.05] motion-safe:hover:shadow-[0_10px_24px_rgba(139,92,246,0.07)]",
         sizeClasses[size],
         className
       )}
@@ -57,7 +57,7 @@ function LogoMark({ item, size }: { item: SoftwareItem; size: number }) {
         style={{
           width: size + 4,
           height: size + 4,
-          background: `linear-gradient(145deg, ${color}12, rgba(255, 255, 255, 0.035))`
+          background: `linear-gradient(145deg, ${color}12, rgba(255, 255, 255, 0.03))`
         }}
       >
         <svg width={size} height={size} viewBox="0 0 24 24" role="img" aria-hidden="true" className="shrink-0 transition duration-200">
@@ -74,7 +74,7 @@ function LogoMark({ item, size }: { item: SoftwareItem; size: number }) {
         style={{
           width: size + 4,
           height: size + 4,
-          background: `linear-gradient(145deg, ${item.color}12, rgba(255, 255, 255, 0.035))`
+          background: `linear-gradient(145deg, ${item.color}12, rgba(255, 255, 255, 0.03))`
         }}
       >
         <svg width={size} height={size} viewBox="0 0 24 24" role="img" aria-hidden="true" className="shrink-0">
@@ -86,7 +86,7 @@ function LogoMark({ item, size }: { item: SoftwareItem; size: number }) {
 
   if (item.custom === "office") {
     return (
-      <span className="grid shrink-0 place-items-center rounded-md bg-[#D83B01]/90 font-black text-white shadow-[0_0_16px_rgba(216,59,1,0.1)]" style={{ width: size, height: size, fontSize: Math.max(10, size * 0.42) }}>
+      <span className="grid shrink-0 place-items-center rounded-md bg-[#D83B01]/90 font-semibold text-white shadow-[0_0_16px_rgba(216,59,1,0.1)]" style={{ width: size, height: size, fontSize: Math.max(10, size * 0.42) }}>
         O
       </span>
     );
@@ -124,7 +124,7 @@ export function SoftwareLogoGroup({
         <SoftwareLogo key={item.id} item={item} size={size} showLabel={showLabels} />
       ))}
       {extra > 0 ? (
-        <span className={clsx("inline-flex items-center justify-center rounded-xl border border-violet-300/10 bg-white/[0.035] px-3 font-bold text-slate-400", sizeClasses[size])}>
+        <span className={clsx("inline-flex items-center justify-center rounded-xl border border-violet-300/8 bg-white/[0.03] px-3 font-semibold text-slate-400", sizeClasses[size])}>
           +{extra}
         </span>
       ) : null}

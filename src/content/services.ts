@@ -50,10 +50,10 @@ const coreServices: Service[] = [
     icon: MonitorCog,
     title: { az: "Windows quraşdırılması və formatlama", ru: "Установка Windows и форматирование", en: "Windows installation and formatting" },
     short: { az: "Windows 10/11, driverlər, əsas proqramlar və ilkin optimizasiya.", ru: "Windows 10/11, драйверы, базовые программы и первичная оптимизация.", en: "Windows 10/11, drivers, basic apps and initial optimization." },
-    seoTitle: { az: "Windows quraşdırılması Bakı | Formatlama və driver setup | Softy.az", ru: "Установка Windows в Баку | Форматирование и драйверы | Softy.az", en: "Windows installation in Baku | Formatting and drivers | Softy.az" },
+    seoTitle: { az: "Windows quraşdırılması Bakı | Formatlama və driver qurulumu | Softy.az", ru: "Установка Windows в Баку | Форматирование и драйверы | Softy.az", en: "Windows installation in Baku | Formatting and drivers | Softy.az" },
     meta: { az: "Windows quraşdırılması, laptop formatlama, driver yazılması və əsas proqramların sazlanması. Bakı üzrə xidmət və Azərbaycan üzrə uzaqdan dəstək.", ru: "Установка Windows, форматирование ноутбука, драйверы и базовая настройка программ в Баку и удаленно по Азербайджану.", en: "Windows setup, laptop formatting, driver installation and basic app configuration in Baku and remotely across Azerbaijan." },
     intro: { az: "Laptop və kompüteriniz üçün təmiz Windows quraşdırılması, lazımi driverlərin yazılması və gündəlik istifadə üçün əsas proqramların hazırlanması.", ru: "Чистая установка Windows для ноутбука или ПК с драйверами и базовыми программами для ежедневной работы.", en: "Clean Windows setup for laptops and PCs with drivers and everyday apps prepared for comfortable use." },
-    includes: { az: ["Windows 10/11 quraşdırılması", "Clean install və formatlama", "Driver setup", "Ofis və gündəlik proqramlar", "Sistem optimizasiyası", "Backup üçün yönləndirmə"], ru: ["Установка Windows 10/11", "Чистая установка и форматирование", "Настройка драйверов", "Офисные и базовые программы", "Оптимизация системы", "Рекомендации по backup"], en: ["Windows 10/11 setup", "Clean installation and formatting", "Driver setup", "Office and daily apps", "System optimization", "Backup guidance"] },
+    includes: { az: ["Windows 10/11 quraşdırılması", "Təmiz quraşdırma və formatlama", "Driver qurulumu", "Ofis və gündəlik proqramlar", "Sistem optimizasiyası", "Ehtiyat nüsxə üçün məsləhət"], ru: ["Установка Windows 10/11", "Чистая установка и форматирование", "Настройка драйверов", "Офисные и базовые программы", "Оптимизация системы", "Рекомендации по backup"], en: ["Windows 10/11 setup", "Clean installation and formatting", "Driver setup", "Office and daily apps", "System optimization", "Backup guidance"] },
     audience: { az: ["Laptopu yavaş işləyən istifadəçilər", "Yeni cihaz alanlar", "Tələbələr və ofis işçiləri"], ru: ["Пользователи с медленным ноутбуком", "Владельцы новых устройств", "Студенты и офисные сотрудники"], en: ["Users with slow laptops", "New device owners", "Students and office workers"] },
     faq: commonFaq
   },
@@ -62,7 +62,7 @@ const coreServices: Service[] = [
     category: "systems",
     icon: Code2,
     title: { az: "Linux quraşdırılması və dəstək", ru: "Установка Linux и поддержка", en: "Linux installation and support" },
-    short: { az: "Linux setup, dual-boot yönləndirməsi və developer mühiti dəstəyi.", ru: "Linux setup, помощь с dual-boot и средой разработчика.", en: "Linux setup, dual-boot guidance and developer environment support." },
+    short: { az: "Linux qurulumu, dual-boot yönləndirməsi və developer mühiti dəstəyi.", ru: "Linux setup, помощь с dual-boot и средой разработчика.", en: "Linux setup, dual-boot guidance and developer environment support." },
     seoTitle: { az: "Linux quraşdırılması və texniki dəstək | Softy.az", ru: "Установка Linux и техническая поддержка | Softy.az", en: "Linux installation and technical support | Softy.az" },
     meta: { az: "Linux quraşdırılması, ilkin sazlama, developer alətləri və nasazlıqlar üçün dəstək.", ru: "Установка Linux, базовая настройка, инструменты разработчика и помощь с ошибками.", en: "Linux installation, base setup, developer tools and troubleshooting support." },
     intro: { az: "Linux ilə işləmək istəyən tələbələr, developerlər və texniki istifadəçilər üçün rahat başlanğıc quraşdırması.", ru: "Удобная начальная настройка Linux для студентов, разработчиков и технических пользователей.", en: "A smooth Linux start for students, developers and technical users." },
@@ -75,7 +75,7 @@ const coreServices: Service[] = [
     category: "pro",
     icon: DraftingCompass,
     title: { az: "AutoCAD quraşdırılması", ru: "Установка AutoCAD", en: "AutoCAD installation" },
-    short: { az: "AutoCAD setup, sazlama və memarlıq/mühəndislik işləri üçün hazırlıq.", ru: "Настройка AutoCAD для архитектурных и инженерных задач.", en: "AutoCAD setup for architecture and engineering workflows." },
+    short: { az: "AutoCAD qurulumu, sazlama və memarlıq/mühəndislik işləri üçün hazırlıq.", ru: "Настройка AutoCAD для архитектурных и инженерных задач.", en: "AutoCAD setup for architecture and engineering workflows." },
     seoTitle: { az: "AutoCAD quraşdırılması Bakıda və Azərbaycanda | Softy.az", ru: "Установка AutoCAD в Баку и Азербайджане | Softy.az", en: "AutoCAD installation in Baku and Azerbaijan | Softy.az" },
     meta: { az: "AutoCAD quraşdırılması, sazlanması və texniki dəstək. Bakı üzrə xidmət və Azərbaycan üzrə uzaqdan dəstək.", ru: "Установка и настройка AutoCAD. Услуги в Баку и удаленная поддержка по Азербайджану.", en: "AutoCAD installation, configuration and support in Baku and remotely across Azerbaijan." },
     intro: { az: "Memarlar, mühəndislər və tələbələr üçün AutoCAD quraşdırılması, ilkin sazlama və rahat iş mühiti hazırlığı.", ru: "Установка AutoCAD для архитекторов, инженеров и студентов с базовой настройкой рабочего окружения.", en: "AutoCAD setup for architects, engineers and students with a practical work environment." },
@@ -88,7 +88,7 @@ const coreServices: Service[] = [
     category: "pro",
     icon: DraftingCompass,
     title: { az: "Revit quraşdırılması", ru: "Установка Revit", en: "Revit installation" },
-    short: { az: "BIM layihələri üçün Revit setup, uyğunluq yoxlanışı və dəstək.", ru: "Revit setup для BIM-проектов, проверка совместимости и поддержка.", en: "Revit setup for BIM projects with compatibility checks." },
+    short: { az: "BIM layihələri üçün Revit qurulumu, uyğunluq yoxlanışı və dəstək.", ru: "Revit setup для BIM-проектов, проверка совместимости и поддержка.", en: "Revit setup for BIM projects with compatibility checks." },
     seoTitle: { az: "Revit quraşdırılması və BIM proqram dəstəyi | Softy.az", ru: "Установка Revit и поддержка BIM-программ | Softy.az", en: "Revit installation and BIM software support | Softy.az" },
     meta: { az: "Revit quraşdırılması, BIM işləri üçün sazlama, render və memarlıq proqramları ilə uyğunluq dəstəyi.", ru: "Установка Revit, настройка для BIM-задач и совместимость с архитектурными программами.", en: "Revit installation, BIM setup and compatibility support for architecture tools." },
     intro: { az: "BIM dərsləri və real layihələr üçün Revit-in düzgün quraşdırılması və sistemə uyğun hazırlanması.", ru: "Корректная установка Revit для учебы и реальных BIM-проектов.", en: "Proper Revit setup for coursework and real BIM projects." },
@@ -101,7 +101,7 @@ const coreServices: Service[] = [
     category: "pro",
     icon: AppWindow,
     title: { az: "Adobe proqramlarının quraşdırılması", ru: "Установка программ Adobe", en: "Adobe app installation" },
-    short: { az: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom və Acrobat setup.", ru: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom и Acrobat.", en: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom and Acrobat setup." },
+    short: { az: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom və Acrobat qurulumu.", ru: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom и Acrobat.", en: "Photoshop, Illustrator, Premiere Pro, After Effects, Lightroom and Acrobat setup." },
     seoTitle: { az: "Adobe proqram quraşdırılması | Photoshop, Premiere Pro, Illustrator | Softy.az", ru: "Установка Adobe | Photoshop, Premiere Pro, Illustrator | Softy.az", en: "Adobe installation | Photoshop, Premiere Pro, Illustrator | Softy.az" },
     meta: { az: "Adobe proqramları üçün quraşdırma, aktivasiya dəstəyi və istifadə ehtiyacınıza uyğun konsultasiya.", ru: "Установка программ Adobe, поддержка активации в применимых случаях и консультация по вариантам использования.", en: "Adobe app setup, activation support where applicable and usage guidance." },
     intro: { az: "Dizayn, video montaj və foto redaktə işləri üçün Adobe tətbiqlərinin peşəkar quraşdırılması və sazlanması.", ru: "Профессиональная настройка Adobe-приложений для дизайна, монтажа и обработки фото.", en: "Professional Adobe app setup for design, video editing and photo workflows." },
@@ -114,7 +114,7 @@ const coreServices: Service[] = [
     category: "office",
     icon: FileText,
     title: { az: "Microsoft Office quraşdırılması", ru: "Установка Microsoft Office", en: "Microsoft Office installation" },
-    short: { az: "Word, Excel, PowerPoint, Outlook və PDF alətləri üçün rahat setup.", ru: "Word, Excel, PowerPoint, Outlook и PDF-инструменты.", en: "Word, Excel, PowerPoint, Outlook and PDF tool setup." },
+    short: { az: "Word, Excel, PowerPoint, Outlook və PDF alətləri üçün rahat qurulum.", ru: "Word, Excel, PowerPoint, Outlook и PDF-инструменты.", en: "Word, Excel, PowerPoint, Outlook and PDF tool setup." },
     seoTitle: { az: "Microsoft Office quraşdırılması | Word, Excel, PowerPoint | Softy.az", ru: "Установка Microsoft Office | Word, Excel, PowerPoint | Softy.az", en: "Microsoft Office installation | Word, Excel, PowerPoint | Softy.az" },
     meta: { az: "Microsoft Office quraşdırılması, Word, Excel, PowerPoint və Outlook sazlanması.", ru: "Установка Microsoft Office, настройка Word, Excel, PowerPoint и Outlook.", en: "Microsoft Office installation and Word, Excel, PowerPoint, Outlook configuration." },
     intro: { az: "Təhsil, ofis və gündəlik sənəd işləri üçün Office proqramlarının hazırlanması.", ru: "Настройка Office для учебы, офиса и ежедневной работы с документами.", en: "Office setup for study, office work and everyday documents." },
@@ -128,7 +128,7 @@ const coreServices: Service[] = [
     icon: Cpu,
     title: { az: "Driver quraşdırılması", ru: "Установка драйверов", en: "Driver installation" },
     short: { az: "GPU, Wi-Fi, Bluetooth, audio, printer, chipset və laptop driverləri.", ru: "GPU, Wi-Fi, Bluetooth, audio, printer, chipset и драйверы ноутбука.", en: "GPU, Wi-Fi, Bluetooth, audio, printer, chipset and laptop drivers." },
-    seoTitle: { az: "Driver quraşdırılması Bakı | Laptop və PC driver setup | Softy.az", ru: "Установка драйверов в Баку | Ноутбук и ПК | Softy.az", en: "Driver installation in Baku | Laptop and PC setup | Softy.az" },
+    seoTitle: { az: "Driver quraşdırılması Bakı | Laptop və PC driver qurulumu | Softy.az", ru: "Установка драйверов в Баку | Ноутбук и ПК | Softy.az", en: "Driver installation in Baku | Laptop and PC setup | Softy.az" },
     meta: { az: "Laptop və kompüter üçün driver quraşdırılması: video kart, Wi-Fi, Bluetooth, audio, printer və chipset driverləri.", ru: "Установка драйверов для ноутбука и ПК: видеокарта, Wi-Fi, Bluetooth, audio, printer, chipset.", en: "Driver installation for laptops and PCs: GPU, Wi-Fi, Bluetooth, audio, printer and chipset." },
     intro: { az: "Sistem stabil işləsin deyə cihazınıza uyğun driverlərin tapılması, quraşdırılması və yoxlanması.", ru: "Подбор, установка и проверка драйверов для стабильной работы системы.", en: "Finding, installing and checking the right drivers for stable system performance." },
     includes: { az: ["GPU driverləri", "Wi-Fi/Bluetooth", "Audio driverləri", "Printer driverləri", "Chipset driverləri", "Laptop modelinə uyğun driverlər"], ru: ["GPU-драйверы", "Wi-Fi/Bluetooth", "Audio-драйверы", "Printer-драйверы", "Chipset-драйверы", "Драйверы под модель ноутбука"], en: ["GPU drivers", "Wi-Fi/Bluetooth", "Audio drivers", "Printer drivers", "Chipset drivers", "Laptop-specific drivers"] },
@@ -179,7 +179,7 @@ const coreServices: Service[] = [
 export const services: Service[] = [...coreServices, ...seoLandingServices];
 
 export const extraServices = [
-  { icon: ShieldCheck, title: { az: "Antivirus və təhlükəsizlik quraşdırılması", ru: "Антивирус и безопасность", en: "Antivirus and security setup" }, text: { az: "Təhlükəsizlik alətləri, browser safety ayarları və safe usage tövsiyələri.", ru: "Инструменты защиты, browser safety settings и рекомендации.", en: "Security tools, browser safety settings and safe usage recommendations." } },
+  { icon: ShieldCheck, title: { az: "Antivirus və təhlükəsizlik quraşdırılması", ru: "Антивирус и безопасность", en: "Antivirus and security setup" }, text: { az: "Təhlükəsizlik alətləri, brauzer təhlükəsizliyi ayarları və təhlükəsiz istifadə tövsiyələri.", ru: "Инструменты защиты, browser safety settings и рекомендации.", en: "Security tools, browser safety settings and safe usage recommendations." } },
   { icon: Gamepad2, title: { az: "Oyun quraşdırılması", ru: "Установка игр", en: "Game installation" }, text: { az: "DirectX, Visual C++ komponentləri, driver dəstəyi və performans ayarları.", ru: "DirectX, Visual C++ components, драйверы и настройки производительности.", en: "DirectX, Visual C++ components, driver support and performance settings." } }
 ];
 

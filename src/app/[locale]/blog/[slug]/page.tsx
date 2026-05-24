@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         <h2 className="mb-5 text-2xl font-black text-white">{locale === "az" ? "Oxşar məqalələr" : locale === "ru" ? "Похожие статьи" : "Related articles"}</h2>
         <div className="grid gap-5 md:grid-cols-3">{related.map((item) => <BlogCard key={item.slug} post={item} locale={locale} />)}</div>
       </section>
-      <CTASection locale={locale} title={locale === "az" ? "Proqram setup üçün kömək lazımdır?" : locale === "ru" ? "Нужна помощь с настройкой?" : "Need help with setup?"} text={locale === "az" ? "WhatsApp ilə yazın, cihazınıza uyğun ən rahat variantı seçək." : locale === "ru" ? "Напишите в WhatsApp, подберем удобный вариант." : "Message us on WhatsApp and we will suggest the right option."} />
+      <CTASection locale={locale} title={locale === "az" ? "Proqram qurulumu üçün kömək lazımdır?" : locale === "ru" ? "Нужна помощь с настройкой?" : "Need help with setup?"} text={locale === "az" ? "WhatsApp ilə yazın, cihazınıza uyğun ən rahat variantı seçək." : locale === "ru" ? "Напишите в WhatsApp, подберем удобный вариант." : "Message us on WhatsApp and we will suggest the right option."} />
     </>
   );
 }
