@@ -65,7 +65,7 @@ const popularRequests = [
 
 const popularStatus: Record<Locale, Record<"setup" | "popular", string>> = {
   az: { setup: "Qurulum", popular: "Populyar" },
-  ru: { setup: "?????????", popular: "?????????" },
+  ru: { setup: "Установка", popular: "Популярно" },
   en: { setup: "Setup", popular: "Popular" }
 };
 
